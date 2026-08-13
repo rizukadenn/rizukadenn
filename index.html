@@ -21,42 +21,6 @@
     <a href="galeri.html">📷 Galeri</a>
 </nav>
     <main>
-<section>
-    <h2>🌷 Galeri Foto</h2>
-
-    <div class="slideshow">
-        <img id="slide" src="foto1.jpg" alt="Galeri Foto">
-    </div>
-</section>
-
-<script>
-    const gambar = [
-        "foto1.jpg",
-        "foto2.jpg",
-        "foto3.jpg",
-        "foto4.jpg"
-    ];
-
-    let nomor = 0;
-
-    function gantiGambar() {
-        nomor++;
-
-        if (nomor >= gambar.length) {
-            nomor = 0;
-        }
-
-        const slide = document.getElementById("slide");
-
-        slide.style.opacity = 0;
-
-        setTimeout(function() {
-            slide.src = gambar[nomor];
-            slide.style.opacity = 1;
-        }, 500);
-    }
-
-    setInterval(gantiGambar, 3000);
 </script>
         <section>
             <h2>🌸 Tentang Saya</h2>
