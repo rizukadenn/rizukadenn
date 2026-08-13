@@ -116,3 +116,53 @@ nav a:hover {
 .tombol:hover {
     background-color: #ed9fbd;
 }
+/* GALERI */
+
+.galeri {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.foto {
+    background-color: #fff5f8;
+    padding: 12px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(220, 150, 180, 0.15);
+}
+
+.foto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.foto p {
+    color: #8b5369;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Efek saat mouse diarahkan ke foto */
+
+.foto:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 0 6px 15px rgba(220, 120, 160, 0.25);
+}
+
+/* Tampilan HP */
+
+@media (max-width: 600px) {
+
+    .galeri {
+        grid-template-columns: 1fr;
+    }
+
+    .foto img {
+        height: 250px;
+    }
+
+}
