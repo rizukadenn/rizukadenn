@@ -5,13 +5,13 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f2f4f7;
-    color: #333;
+    background-color: #fff5f8;
+    color: #5c4650;
 }
 
 header {
-    background-color: #2563eb;
-    color: white;
+    background-color: #f8c8dc;
+    color: #6b3f50;
     text-align: center;
     padding: 60px 20px;
 }
@@ -28,19 +28,24 @@ main {
 }
 
 section {
-    background: white;
+    background-color: #ffffff;
     margin-bottom: 20px;
     padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(220, 150, 180, 0.15);
 }
 
 h2 {
-    color: #2563eb;
+    color: #d889a8;
+}
+
+ul {
+    line-height: 2;
 }
 
 footer {
+    background-color: #fce1eb;
     text-align: center;
     padding: 25px;
-    color: #666;
+    color: #7a5261;
 }
