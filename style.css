@@ -166,3 +166,20 @@ nav a:hover {
     }
 
 }
+.slideshow {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 5px solid #f8c8dc;
+    box-shadow: 0 5px 20px rgba(220, 130, 170, 0.25);
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
