@@ -13,12 +13,22 @@ header {
     background-color: #f8c8dc;
     color: #6b3f50;
     text-align: center;
-    padding: 60px 20px;
+    padding: 50px 20px;
 }
 
 header h1 {
-    margin: 0 0 10px;
+    margin: 15px 0 10px;
     font-size: 40px;
+}
+
+/* Foto profil */
+.foto-profil {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+    box-shadow: 0 4px 15px rgba(180, 100, 130, 0.25);
 }
 
 main {
@@ -28,7 +38,7 @@ main {
 }
 
 section {
-    background-color: #ffffff;
+    background-color: white;
     margin-bottom: 20px;
     padding: 25px;
     border-radius: 15px;
@@ -37,6 +47,33 @@ section {
 
 h2 {
     color: #d889a8;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background-color: #f4b6cf;
+    color: #6b3f50;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #f3dce5;
+}
+
+tr:nth-child(even) {
+    background-color: #fff5f8;
+}
+
+tr:hover {
+    background-color: #fde5ee;
 }
 
 ul {
