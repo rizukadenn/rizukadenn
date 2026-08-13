@@ -86,3 +86,33 @@ footer {
     padding: 25px;
     color: #7a5261;
 }
+nav {
+    background-color: #fce1eb;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: #8b5369;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #d36f96;
+}
+
+.tombol {
+    display: inline-block;
+    background-color: #f4b6cf;
+    color: #6b3f50;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.tombol:hover {
+    background-color: #ed9fbd;
+}
