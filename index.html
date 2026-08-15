@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Magical Birthday 💙</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="sky-background">
+
+    <div class="moon"></div>
+
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <div id="stars"></div>
+
+</div>
+
+
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
+
+<div id="particles"></div>
+
+
+<!-- =====================================================
+     LOADING SCREEN
+===================================================== -->
+
+<section id="loadingScreen" class="loading-screen">
+
+    <div class="loading-content">
+
+        <div class="loading-heart">♡</div>
+
+        <h1>Something magical is coming...</h1>
+
+        <p>Preparing a little birthday surprise</p>
+
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+
+        <span class="loading-percent">0%</span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ENVELOPE SCREEN
+===================================================== -->
+
+<section id="envelopeScreen" class="envelope-screen hidden">
+
+    <div class="envelope-area">
+
+        <div class="floating-word">a little surprise for you ♡</div>
+
+        <div id="envelope" class="envelope">
+
+            <div class="envelope-back"></div>
+
+            <div class="envelope-paper">
+
+                <div class="paper-content">
+                    <span>For someone special</span>
+                    <strong>💙</strong>
+                </div>
+
+            </div>
+
+            <div class="envelope-front"></div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="envelope-seal">♥</div>
+
+        </div>
+
+        <p class="click-envelope">
+            Tap the envelope
+            <span>✨</span>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NAME REVEAL
+===================================================== -->
+
+<section id="nameScreen" class="name-screen hidden">
+
+    <div class="name-glow"></div>
+
+    <p class="tiny-text">this little surprise is made especially for</p>
+
+    <h1 class="receiver-name">
+        Someone Special
+    </h1>
+
+    <div class="name-line"></div>
+
+    <p class="name-message">
+        because today deserves a little extra magic ✨
+    </p>
+
+    <button id="enterButton" class="magical-button">
+        Enter the magic
+        <span>→</span>
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<main id="mainContent" class="main-content hidden">
+
+
+    <!-- HERO -->
+    <section class="hero section">
+
+        <div class="hero-glow"></div>
+
+        <div class="butterfly butterfly-1">🦋</div>
+        <div class="butterfly butterfly-2">🦋</div>
+        <div class="butterfly butterfly-3">🦋</div>
+
+        <div class="hero-content">
+
+            <div class="mini-label">
+                ✦ A MAGICAL DAY ✦
+            </div>
+
+            <h1>
+                Happy Birthday
+                <span>♡</span>
+            </h1>
+
+            <h2 id="heroName">
+                Someone Special
+            </h2>
+
+            <p>
+                May your day be filled with tiny moments
+                that feel like magic.
+            </p>
+
+            <button id="scrollButton" class="magical-button">
+                Discover your surprise
+                <span>↓</span>
+            </button>
+
+        </div>
+
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         BIRTHDAY MESSAGE
+    ================================================== -->
+
+    <section class="message-section section">
+
+        <div class="section-decoration">✦</div>
+
+        <div class="glass-card message-card">
+
+            <span class="card-icon">💌</span>
+
+            <p class="small-heading">
+                A little message
+            </p>
+
+            <h2>
+                For you, on your special day
+            </h2>
+
+            <div class="typing-box">
+                <p id="typingText"></p>
+                <span class="typing-cursor">|</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CAKE
+    ================================================== -->
+
+    <section class="cake-section section">
+
+        <div class="section-title">
+
+            <span>🎂</span>
+
+            <h2>
+                Make a wish
+            </h2>
+
+            <p>
+                Click the candles and make your birthday wish.
+            </p>
+
+        </div>
+
+
+        <div class="cake-area">
+
+            <div class="cake-glow"></div>
+
+            <div class="candles">
+
+                <div class="candle">
+                    <div class="flame"></div>
+                    <div class="candle-body"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                    <div class="candle-body"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                    <div class="candle-body"></div>
+                </div>
+
+            </div>
+
+
+            <div class="cake">
+
+                <div class="cake-top"></div>
+
+                <div class="cake-layer cake-layer-1"></div>
+
+                <div class="cake-layer cake-layer-2"></div>
+
+                <div class="cake-layer cake-layer-3"></div>
+
+                <div class="cake-decoration decoration-1">♡</div>
+                <div class="cake-decoration decoration-2">♡</div>
+                <div class="cake-decoration decoration-3">♡</div>
+
+            </div>
+
+            <div class="cake-plate"></div>
+
+        </div>
+
+
+        <p id="wishMessage" class="wish-message">
+            ✨ Make a wish first... ✨
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         GIFT
+    ================================================== -->
+
+    <section class="gift-section section">
+
+        <div class="section-title">
+
+            <span>🎁</span>
+
+            <h2>
+                There's something for you
+            </h2>
+
+            <p>
+                A tiny gift wrapped with lots of love.
+            </p>
+
+        </div>
+
+
+        <div id="gift" class="gift">
+
+            <div class="gift-glow"></div>
+
+            <div class="gift-box">
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-body"></div>
+
+                <div class="gift-ribbon vertical"></div>
+
+                <div class="gift-ribbon horizontal"></div>
+
+                <div class="gift-bow">
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button id="giftButton" class="magical-button">
+            Open your gift 🎀
+        </button>
+
+
+        <div id="giftMessage" class="gift-message">
+
+            <div class="gift-message-inner">
+
+                <span>✨</span>
+
+                <h3>
+                    Your gift is...
+                </h3>
+
+                <p>
+                    A reminder that you are someone
+                    worth celebrating, today and every day.
+                </p>
+
+                <strong>
+                    Keep shining, okay? 💙
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         WISHES
+    ================================================== -->
+
+    <section class="wishes-section section">
+
+        <div class="glass-card wishes-card">
+
+            <div class="wish-stars">
+                ✦　✧　✦
+            </div>
+
+            <h2>
+                Birthday wishes
+            </h2>
+
+            <div class="wish-list">
+
+                <div class="wish-item">
+                    <span>🌙</span>
+                    <p>
+                        May your nights be peaceful.
+                    </p>
+                </div>
+
+                <div class="wish-item">
+                    <span>🌷</span>
+                    <p>
+                        May your days bloom beautifully.
+                    </p>
+                </div>
+
+                <div class="wish-item">
+                    <span>✨</span>
+                    <p>
+                        May your dreams find their way to you.
+                    </p>
+                </div>
+
+                <div class="wish-item">
+                    <span>🦋</span>
+                    <p>
+                        And may you always remember how special you are.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FINAL MESSAGE
+    ================================================== -->
+
+    <section class="final-section section">
+
+        <div class="final-stars">
+            ✦ ✧ ✦ ✧ ✦
+        </div>
+
+        <div class="final-content">
+
+            <p>
+                and before you go...
+            </p>
+
+            <h2>
+                Happy Birthday,
+                <span id="finalName">Someone Special</span> 💙
+            </h2>
+
+            <div class="heart-big">
+                ♥
+            </div>
+
+            <p class="final-note">
+                May this new chapter be soft,
+                beautiful and full of little miracles.
+            </p>
+
+            <button id="magicButton" class="magical-button">
+                Make it magical ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            made with ♡ and a little bit of magic
+        </p>
+
+        <span>
+            ✦ 2026 ✦
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+<!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
+<button id="musicButton" class="music-button" aria-label="Music">
+    ♫
+</button>
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
