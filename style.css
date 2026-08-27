@@ -2986,3 +2986,109 @@ footer {
     }
 
 }
+/* =========================================
+   COUPLE PHOTO - ELEGANT PINK ARCH
+========================================= */
+
+.person-photo {
+    width: 215px;
+    height: 280px;
+    margin: 0 auto 30px;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 110px 110px 12px 12px;
+
+    border: 8px solid rgba(255, 255, 255, 0.95);
+
+    background: linear-gradient(
+        145deg,
+        #edc5d0,
+        #c98fa4
+    );
+
+    box-shadow:
+        0 18px 45px rgba(120, 70, 85, 0.16),
+        0 4px 15px rgba(120, 70, 85, 0.08);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+/* FOTO */
+
+.person-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.8,.2,1),
+        filter 0.5s ease;
+}
+
+
+/* HOVER */
+
+.person-card:hover .person-photo {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 25px 55px rgba(120, 70, 85, 0.22),
+        0 8px 20px rgba(120, 70, 85, 0.12);
+}
+
+.person-card:hover .person-photo img {
+    transform: scale(1.06);
+}
+
+
+/* FRAME INNER */
+
+.person-photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 5px;
+
+    border-radius: 102px 102px 8px 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .person-photo {
+        width: 165px;
+        height: 225px;
+
+        border-width: 6px;
+
+        border-radius: 85px 85px 10px 10px;
+    }
+
+    .person-photo::after {
+        inset: 4px;
+
+        border-radius: 78px 78px 7px 7px;
+    }
+
+}
