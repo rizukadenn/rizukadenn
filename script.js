@@ -1,845 +1,197 @@
 /* =====================================================
-   MAGICAL PASTEL BLUE BIRTHDAY
+   ELEGANT PINK WEDDING
+   MAIN JAVASCRIPT
 ===================================================== */
 
 
 /* =====================================================
-   PERSONALIZATION
+   CONFIG
 ===================================================== */
 
-// GANTI nama di sini
-const birthdayName = "Someone Special";
+const CONFIG = {
 
-// GANTI pesan di sini
-const birthdayMessage =
-    "Happy birthday! I hope this little corner of the internet can remind you that you are loved, appreciated, and deserving of beautiful things. May this new chapter bring you gentle days, unexpected happiness, wonderful memories, and dreams that slowly turn into reality. Keep smiling, keep dreaming, and keep being wonderfully you. 💙✨";
+    GOOGLE_SCRIPT_URL:
+        "https://script.google.com/macros/s/AKfycbxS1suysupUJSWoaGPXjSlrJw0h0FGq4XwxNjyrTsF1g4xvZZAajZTqklbpgS2dVJCtBg/exec",
+
+    WHATSAPP_NUMBER:
+        "6289526612634",
+
+    WEDDING_DATE:
+        "2026-12-12T08:00:00+07:00"
+
+};
+
 
 
 /* =====================================================
-   ELEMENTS
+   DOM
 ===================================================== */
 
-const loadingScreen =
-    document.getElementById("loadingScreen");
+const loader =
+    document.getElementById("loader");
 
-const envelopeScreen =
-    document.getElementById("envelopeScreen");
-
-const envelope =
-    document.getElementById("envelope");
-
-const nameScreen =
-    document.getElementById("nameScreen");
+const opening =
+    document.getElementById("opening");
 
 const mainContent =
     document.getElementById("mainContent");
 
-const enterButton =
-    document.getElementById("enterButton");
+const openInvitation =
+    document.getElementById("openInvitation");
 
-const heroName =
-    document.getElementById("heroName");
-
-const finalName =
-    document.getElementById("finalName");
-
-const receiverName =
-    document.querySelector(".receiver-name");
-
-const typingText =
-    document.getElementById("typingText");
-
-const wishMessage =
-    document.getElementById("wishMessage");
-
-const gift =
-    document.getElementById("gift");
-
-const giftButton =
-    document.getElementById("giftButton");
-
-const giftMessage =
-    document.getElementById("giftMessage");
-
-const scrollButton =
-    document.getElementById("scrollButton");
-
-const magicButton =
-    document.getElementById("magicButton");
+const weddingMusic =
+    document.getElementById("weddingMusic");
 
 const musicButton =
     document.getElementById("musicButton");
 
+const guestNameOpening =
+    document.getElementById("guestNameOpening");
 
-/* =====================================================
-   SET NAME
-===================================================== */
+const guestName =
+    document.getElementById("guestName");
 
-receiverName.textContent = birthdayName;
-heroName.textContent = birthdayName;
-finalName.textContent = birthdayName;
+const rsvpForm =
+    document.getElementById("rsvpForm");
 
+const rsvpStatus =
+    document.getElementById("rsvpStatus");
 
-/* =====================================================
-   LOADING SCREEN
-===================================================== */
+const submitText =
+    document.getElementById("submitText");
 
-let progress = 0;
+const submitLoading =
+    document.getElementById("submitLoading");
 
-const loadingProgress =
-    document.querySelector(".loading-progress");
-
-const loadingPercent =
-    document.querySelector(".loading-percent");
-
-
-const loadingInterval =
-    setInterval(() => {
-
-        progress++;
-
-        loadingProgress.style.width =
-            progress + "%";
-
-        loadingPercent.textContent =
-            progress + "%";
-
-
-        if (progress >= 100) {
-
-            clearInterval(loadingInterval);
-
-            setTimeout(() => {
-
-                loadingScreen.classList.add("hidden");
-
-                envelopeScreen.classList.remove("hidden");
-
-            }, 700);
-        }
-
-    }, 28);
 
 
 /* =====================================================
-   CREATE STARS
+   LOADER
 ===================================================== */
 
-const starsContainer =
-    document.getElementById("stars");
+window.addEventListener(
+    "load",
+    () => {
 
+        setTimeout(
+            () => {
 
-for (let i = 0; i < 80; i++) {
+                loader.classList.add(
+                    "hide"
+                );
 
-    const star =
-        document.createElement("span");
-
-    star.className = "star";
-
-    star.textContent =
-        Math.random() > .5
-            ? "✦"
-            : "·";
-
-    star.style.left =
-        Math.random() * 100 + "%";
-
-    star.style.top =
-        Math.random() * 100 + "%";
-
-    star.style.fontSize =
-        (Math.random() * 8 + 5) + "px";
-
-    star.style.animationDelay =
-        Math.random() * 4 + "s";
-
-    starsContainer.appendChild(star);
-}
-
-
-/* =====================================================
-   FLOATING PARTICLES
-===================================================== */
-
-const particles =
-    document.getElementById("particles");
-
-const particleSymbols = [
-    "♡",
-    "♥",
-    "✦",
-    "✧",
-    "⋆",
-    "🦋",
-    "✨"
-];
-
-
-function createParticle() {
-
-    const particle =
-        document.createElement("span");
-
-    particle.className = "particle";
-
-    particle.textContent =
-        particleSymbols[
-            Math.floor(
-                Math.random() *
-                particleSymbols.length
-            )
-        ];
-
-    particle.style.left =
-        Math.random() * 100 + "vw";
-
-    particle.style.bottom =
-        "-30px";
-
-    particle.style.fontSize =
-        (Math.random() * 15 + 10) + "px";
-
-    particle.style.color =
-        Math.random() > .5
-            ? "#ffffff"
-            : "#efc6d9";
-
-    particle.style.setProperty(
-        "--x",
-        (Math.random() * 180 - 90) + "px"
-    );
-
-    particle.style.setProperty(
-        "--duration",
-        (Math.random() * 8 + 7) + "s"
-    );
-
-    particles.appendChild(particle);
-
-
-    setTimeout(() => {
-
-        particle.remove();
-
-    }, 16000);
-}
-
-
-setInterval(createParticle, 650);
-
-
-/* =====================================================
-   ENVELOPE OPEN
-===================================================== */
-
-let envelopeOpened = false;
-
-
-envelope.addEventListener("click", () => {
-
-    if (envelopeOpened) return;
-
-    envelopeOpened = true;
-
-    envelope.classList.add("open");
-
-    createBurst(
-        window.innerWidth / 2,
-        window.innerHeight / 2,
-        20
-    );
-
-
-    setTimeout(() => {
-
-        envelopeScreen.classList.add("hidden");
-
-        nameScreen.classList.remove("hidden");
-
-        createBurst(
-            window.innerWidth / 2,
-            window.innerHeight / 2,
-            35
-        );
-
-    }, 1600);
-
-});
-
-
-/* =====================================================
-   ENTER MAIN PAGE
-===================================================== */
-
-enterButton.addEventListener("click", () => {
-
-    nameScreen.style.opacity = "0";
-
-    nameScreen.style.transition =
-        "opacity 1s ease";
-
-
-    setTimeout(() => {
-
-        nameScreen.classList.add("hidden");
-
-        mainContent.classList.remove("hidden");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-        startTyping();
-
-    }, 900);
-
-});
-
-
-/* =====================================================
-   SCROLL BUTTON
-===================================================== */
-
-scrollButton.addEventListener("click", () => {
-
-    document
-        .querySelector(".message-section")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-});
-
-
-/* =====================================================
-   TYPEWRITER
-===================================================== */
-
-let typingStarted = false;
-
-
-function startTyping() {
-
-    if (typingStarted) return;
-
-    typingStarted = true;
-
-    let index = 0;
-
-    function type() {
-
-        if (index < birthdayMessage.length) {
-
-            typingText.textContent +=
-                birthdayMessage.charAt(index);
-
-            index++;
-
-            setTimeout(
-                type,
-                28
-            );
-
-        }
-
-    }
-
-    type();
-}
-
-
-/* =====================================================
-   CANDLE
-===================================================== */
-
-const candles =
-    document.querySelectorAll(".candle");
-
-let blownCandles = 0;
-
-
-candles.forEach(candle => {
-
-    candle.addEventListener("click", () => {
-
-        if (
-            candle.classList.contains("blown")
-        ) {
-            return;
-        }
-
-        candle.classList.add("blown");
-
-        blownCandles++;
-
-        createBurst(
-            candle.getBoundingClientRect().left,
-            candle.getBoundingClientRect().top,
-            8
-        );
-
-
-        if (blownCandles === candles.length) {
-
-            wishMessage.textContent =
-                "✨ Wish made! May it come true. 💙";
-
-            wishMessage.style.color =
-                "#d797b5";
-
-            wishMessage.style.transform =
-                "scale(1.15)";
-
-            setTimeout(() => {
-
-                wishMessage.style.transform =
-                    "scale(1)";
-
-            }, 500);
-
-            createBigBurst();
-
-        }
-
-    });
-
-});
-
-
-/* =====================================================
-   GIFT
-===================================================== */
-
-let giftOpened = false;
-
-
-giftButton.addEventListener("click", () => {
-
-    if (giftOpened) return;
-
-    giftOpened = true;
-
-    gift.classList.add("open");
-
-    giftButton.textContent =
-        "✨ Gift opened! ✨";
-
-    createBigBurst();
-
-
-    setTimeout(() => {
-
-        giftMessage.classList.add("show");
-
-        giftMessage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }, 900);
-
-});
-
-
-gift.addEventListener("click", () => {
-
-    if (!giftOpened) {
-
-        giftButton.click();
-
-    }
-
-});
-
-
-/* =====================================================
-   MAGIC BUTTON
-===================================================== */
-
-magicButton.addEventListener("click", () => {
-
-    createBigBurst();
-
-    createBigBurst();
-
-    document.body.animate(
-        [
-            {
-                filter: "brightness(1)"
             },
-            {
-                filter: "brightness(1.15)"
-            },
-            {
-                filter: "brightness(1)"
-            }
-        ],
-        {
-            duration: 1000
-        }
-    );
+            1000
+        );
 
+    }
+);
 
-    magicButton.textContent =
-        "✨ Magic activated ✨";
-
-
-    setTimeout(() => {
-
-        magicButton.textContent =
-            "Make it magical ✨";
-
-    }, 2500);
-
-});
 
 
 /* =====================================================
-   BURST EFFECT
+   PERSONAL GUEST NAME
 ===================================================== */
 
-function createBurst(x, y, amount = 15) {
+function getGuestName() {
 
-    const symbols = [
-        "✦",
-        "✧",
-        "♡",
-        "♥",
-        "✨"
-    ];
-
-
-    for (let i = 0; i < amount; i++) {
-
-        const sparkle =
-            document.createElement("span");
-
-        sparkle.className =
-            "click-sparkle";
-
-        sparkle.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-
-        sparkle.style.left =
-            x + "px";
-
-        sparkle.style.top =
-            y + "px";
-
-
-        sparkle.style.setProperty(
-            "--spark-x",
-            (Math.random() * 160 - 80) + "px"
-        );
-
-        sparkle.style.setProperty(
-            "--spark-y",
-            (Math.random() * 160 - 80) + "px"
+    const params =
+        new URLSearchParams(
+            window.location.search
         );
 
 
-        document.body.appendChild(
-            sparkle
-        );
+    const guest =
+        params.get("to");
 
 
-        setTimeout(() => {
+    if (!guest) {
 
-            sparkle.remove();
-
-        }, 900);
+        return "Tamu Undangan";
 
     }
+
+
+    return decodeURIComponent(
+        guest.replace(
+            /\+/g,
+            " "
+        )
+    ).trim()
+        || "Tamu Undangan";
 
 }
 
 
-/* =====================================================
-   BIG BURST
-===================================================== */
+const currentGuest =
+    getGuestName();
 
-function createBigBurst() {
 
-    createBurst(
-        window.innerWidth / 2,
-        window.innerHeight / 2,
-        50
-    );
+guestNameOpening.textContent =
+    currentGuest;
 
-}
+
+guestName.textContent =
+    currentGuest;
 
 
 /* =====================================================
-   CURSOR SPARKLES
+   AUTO FILL RSVP NAME
 ===================================================== */
 
-let lastSparkle = 0;
+const nameInput =
+    document.getElementById("name");
 
 
-document.addEventListener("mousemove", e => {
-
-    const now =
-        Date.now();
-
-    if (
-        now - lastSparkle < 80
-    ) {
-        return;
-    }
-
-    lastSparkle = now;
-
-
-    const sparkle =
-        document.createElement("span");
-
-    sparkle.className =
-        "click-sparkle";
-
-    sparkle.textContent =
-        Math.random() > .5
-            ? "✦"
-            : "·";
-
-
-    sparkle.style.left =
-        e.clientX + "px";
-
-    sparkle.style.top =
-        e.clientY + "px";
-
-
-    sparkle.style.fontSize =
-        "9px";
-
-
-    sparkle.style.setProperty(
-        "--spark-x",
-        (Math.random() * 25 - 12) + "px"
-    );
-
-    sparkle.style.setProperty(
-        "--spark-y",
-        (Math.random() * 25 - 12) + "px"
-    );
-
-
-    document.body.appendChild(
-        sparkle
-    );
-
-
-    setTimeout(() => {
-
-        sparkle.remove();
-
-    }, 700);
-
-});
-
-
-/* =====================================================
-   CLICK HEART
-===================================================== */
-
-document.addEventListener("click", e => {
-
-    if (
-        e.target.closest("button") ||
-        e.target.closest(".envelope") ||
-        e.target.closest(".gift") ||
-        e.target.closest(".candle")
-    ) {
-        return;
-    }
-
-    createBurst(
-        e.clientX,
-        e.clientY,
-        6
-    );
-
-});
-
-
-/* =====================================================
-   OPTIONAL MUSIC
-===================================================== */
-
-/*
-    Tidak ada file musik eksternal agar website
-    tetap aman dan langsung bekerja di GitHub Pages.
-
-    Tombol ini menggunakan Web Audio API untuk
-    membuat nada-nada sederhana.
-*/
-
-let audioContext = null;
-let musicPlaying = false;
-let musicTimer = null;
-
-
-function playNote(
-    frequency,
-    duration = .25,
-    delay = 0
+if (
+    nameInput &&
+    currentGuest !== "Tamu Undangan"
 ) {
 
-    if (!audioContext) {
-
-        audioContext =
-            new (
-                window.AudioContext ||
-                window.webkitAudioContext
-            )();
-
-    }
-
-
-    setTimeout(() => {
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-
-        oscillator.type =
-            "sine";
-
-        oscillator.frequency.value =
-            frequency;
-
-
-        gain.gain.setValueAtTime(
-            0.0001,
-            audioContext.currentTime
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .06,
-            audioContext.currentTime + .03
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            audioContext.currentTime + duration
-        );
-
-
-        oscillator.connect(gain);
-
-        gain.connect(
-            audioContext.destination
-        );
-
-
-        oscillator.start();
-
-        oscillator.stop(
-            audioContext.currentTime +
-            duration
-        );
-
-    }, delay);
+    nameInput.value =
+        currentGuest;
 
 }
 
 
-function startMusic() {
 
-    const notes = [
-        523.25,
-        659.25,
-        783.99,
-        659.25,
-        587.33,
-        698.46,
-        880,
-        783.99
-    ];
+/* =====================================================
+   OPEN INVITATION
+===================================================== */
 
-
-    let position = 0;
-
-
-    musicTimer =
-        setInterval(() => {
-
-            if (!musicPlaying) return;
-
-            playNote(
-                notes[position],
-                .45
-            );
-
-            position =
-                (position + 1) %
-                notes.length;
-
-        }, 550);
-
-}
-
-
-musicButton.addEventListener(
+openInvitation.addEventListener(
     "click",
     async () => {
 
-        if (!audioContext) {
-
-            audioContext =
-                new (
-                    window.AudioContext ||
-                    window.webkitAudioContext
-                )();
-
-        }
+        opening.classList.add(
+            "closed"
+        );
 
 
-        if (
-            audioContext.state === "suspended"
-        ) {
-
-            await audioContext.resume();
-
-        }
+        mainContent.classList.remove(
+            "hidden"
+        );
 
 
-        musicPlaying =
-            !musicPlaying;
+        document.body.classList.remove(
+            "locked"
+        );
 
 
-        if (musicPlaying) {
+        try {
+
+            await weddingMusic.play();
 
             musicButton.classList.add(
                 "playing"
             );
 
-            musicButton.textContent =
-                "♫";
+        }
 
-            startMusic();
+        catch (error) {
 
-        } else {
-
-            musicButton.classList.remove(
-                "playing"
-            );
-
-            musicButton.textContent =
-                "♩";
-
-            clearInterval(
-                musicTimer
+            console.log(
+                "Music membutuhkan interaksi pengguna."
             );
 
         }
@@ -848,29 +200,1013 @@ musicButton.addEventListener(
 );
 
 
+
 /* =====================================================
-   RANDOM FLOATING PARTICLES
+   MUSIC
 ===================================================== */
 
-for (let i = 0; i < 10; i++) {
+musicButton.addEventListener(
+    "click",
+    async () => {
+
+        if (
+            weddingMusic.paused
+        ) {
+
+            try {
+
+                await weddingMusic.play();
+
+                musicButton.classList.add(
+                    "playing"
+                );
+
+            }
+
+            catch (error) {
+
+                console.log(error);
+
+            }
+
+        }
+
+        else {
+
+            weddingMusic.pause();
+
+            musicButton.classList.remove(
+                "playing"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   FLOATING PETALS
+===================================================== */
+
+const petalsContainer =
+    document.getElementById(
+        "petals"
+    );
+
+
+function createPetal() {
+
+    const petal =
+        document.createElement(
+            "div"
+        );
+
+
+    petal.className =
+        "petal";
+
+
+    const size =
+        Math.random() * 8 + 7;
+
+
+    petal.style.width =
+        `${size}px`;
+
+
+    petal.style.height =
+        `${size * 1.5}px`;
+
+
+    petal.style.left =
+        `${Math.random() * 100}%`;
+
+
+    petal.style.animationDuration =
+        `${Math.random() * 8 + 8}s`;
+
+
+    petal.style.animationDelay =
+        `${Math.random() * 4}s`;
+
+
+    petal.style.setProperty(
+        "--drift",
+        `${Math.random() * 250 - 125}px`
+    );
+
+
+    petalsContainer.appendChild(
+        petal
+    );
+
 
     setTimeout(
-        createParticle,
-        i * 400
+        () => {
+
+            petal.remove();
+
+        },
+        18000
     );
 
 }
 
 
-/* =====================================================
-   CONSOLE MESSAGE
-===================================================== */
+for (
+    let i = 0;
+    i < 18;
+    i++
+) {
 
-console.log(
-    "%c💙 Magical Pastel Blue Birthday 💙",
-    "font-size:20px;color:#6caed0;font-weight:bold;"
+    createPetal();
+
+}
+
+
+setInterval(
+    createPetal,
+    1300
 );
 
-console.log(
-    "Made with love, sparkles and a little magic ✨"
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+const weddingDate =
+    new Date(
+        CONFIG.WEDDING_DATE
+    ).getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+
+    const difference =
+        weddingDate - now;
+
+
+    if (
+        difference <= 0
+    ) {
+
+        document.getElementById(
+            "days"
+        ).textContent = "00";
+
+
+        document.getElementById(
+            "hours"
+        ).textContent = "00";
+
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "00";
+
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "00";
+
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                difference %
+                (1000 * 60 * 60 * 24)
+            ) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                difference %
+                (1000 * 60 * 60)
+            ) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                difference %
+                (1000 * 60)
+            ) /
+            1000
+        );
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        String(days).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds).padStart(
+            2,
+            "0"
+        );
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+rsvpForm.addEventListener(
+    "submit",
+    async (event) => {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById(
+                "name"
+            ).value.trim();
+
+
+        const attendance =
+            document.getElementById(
+                "attendance"
+            ).value;
+
+
+        const guests =
+            document.getElementById(
+                "guests"
+            ).value;
+
+
+        const message =
+            document.getElementById(
+                "message"
+            ).value.trim();
+
+
+        if (!name) {
+
+            showStatus(
+                "Silakan masukkan nama.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!attendance) {
+
+            showStatus(
+                "Silakan pilih kehadiran.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!guests) {
+
+            showStatus(
+                "Silakan pilih jumlah tamu.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        setSubmitLoading(
+            true
+        );
+
+
+        const formData =
+            new URLSearchParams();
+
+
+        formData.append(
+            "nama",
+            name
+        );
+
+
+        formData.append(
+            "kehadiran",
+            attendance
+        );
+
+
+        formData.append(
+            "jumlah_tamu",
+            guests
+        );
+
+
+        formData.append(
+            "ucapan",
+            message
+        );
+
+
+        formData.append(
+            "tamu_undangan",
+            currentGuest
+        );
+
+
+        formData.append(
+            "timestamp",
+            new Date().toLocaleString(
+                "id-ID"
+            )
+        );
+
+
+        try {
+
+
+            /* =========================================
+               GOOGLE SHEETS
+            ========================================= */
+
+            await fetch(
+                CONFIG.GOOGLE_SCRIPT_URL,
+                {
+
+                    method:
+                        "POST",
+
+                    mode:
+                        "no-cors",
+
+                    headers:
+                        {
+                            "Content-Type":
+                                "application/x-www-form-urlencoded;charset=UTF-8"
+                        },
+
+                    body:
+                        formData.toString()
+
+                }
+            );
+
+
+
+            showStatus(
+                "RSVP berhasil dikirim. Terima kasih! 💗",
+                "success"
+            );
+
+
+
+            /* =========================================
+               WHATSAPP
+            ========================================= */
+
+            setTimeout(
+                () => {
+
+                    sendWhatsApp(
+                        name,
+                        attendance,
+                        guests,
+                        message
+                    );
+
+                },
+                700
+            );
+
+
+            rsvpForm.reset();
+
+
+            if (
+                currentGuest !==
+                "Tamu Undangan"
+            ) {
+
+                nameInput.value =
+                    currentGuest;
+
+            }
+
+
+        }
+
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            showStatus(
+                "Gagal mengirim RSVP. Silakan coba lagi.",
+                "error"
+            );
+
+        }
+
+
+        finally {
+
+            setSubmitLoading(
+                false
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function sendWhatsApp(
+    name,
+    attendance,
+    guests,
+    message
+) {
+
+
+    const text =
+
+`Halo, saya ingin memberikan konfirmasi untuk undangan pernikahan.
+
+Nama: ${name}
+
+Nama pada undangan: ${currentGuest}
+
+Kehadiran: ${attendance}
+
+Jumlah tamu: ${guests}
+
+Ucapan:
+${message || "-"}
+
+Terima kasih. 💗`;
+
+
+    const whatsappURL =
+
+        "https://wa.me/" +
+
+        CONFIG.WHATSAPP_NUMBER +
+
+        "?text=" +
+
+        encodeURIComponent(
+            text
+        );
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+
+
+/* =====================================================
+   RSVP STATUS
+===================================================== */
+
+function showStatus(
+    message,
+    type
+) {
+
+    rsvpStatus.textContent =
+        message;
+
+
+    if (
+        type === "success"
+    ) {
+
+        rsvpStatus.style.color =
+            "#789478";
+
+    }
+
+    else {
+
+        rsvpStatus.style.color =
+            "#b55f6f";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SUBMIT LOADING
+===================================================== */
+
+function setSubmitLoading(
+    loading
+) {
+
+    const button =
+        rsvpForm.querySelector(
+            ".submit-button"
+        );
+
+
+    if (loading) {
+
+        button.disabled =
+            true;
+
+
+        submitText.classList.add(
+            "hidden"
+        );
+
+
+        submitLoading.classList.remove(
+            "hidden"
+        );
+
+    }
+
+    else {
+
+        button.disabled =
+            false;
+
+
+        submitText.classList.remove(
+            "hidden"
+        );
+
+
+        submitLoading.classList.add(
+            "hidden"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   COPY BANK
+===================================================== */
+
+function copyAccount() {
+
+    const accountNumber =
+        "1234567890";
+
+
+    navigator.clipboard
+        .writeText(
+            accountNumber
+        )
+        .then(
+            () => {
+
+                alert(
+                    "Nomor rekening berhasil disalin 💗"
+                );
+
+            }
+        )
+        .catch(
+            () => {
+
+                alert(
+                    "Nomor rekening: " +
+                    accountNumber
+                );
+
+            }
+        );
+
+}
+
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+const galleryItems =
+    document.querySelectorAll(
+        ".gallery-item"
+    );
+
+
+const lightbox =
+    document.getElementById(
+        "lightbox"
+    );
+
+
+const lightboxImage =
+    document.getElementById(
+        "lightboxImage"
+    );
+
+
+const lightboxCaption =
+    document.getElementById(
+        "lightboxCaption"
+    );
+
+
+const lightboxClose =
+    document.getElementById(
+        "lightboxClose"
+    );
+
+
+const lightboxPrev =
+    document.getElementById(
+        "lightboxPrev"
+    );
+
+
+const lightboxNext =
+    document.getElementById(
+        "lightboxNext"
+    );
+
+
+let currentGalleryIndex =
+    0;
+
+
+
+/* =====================================================
+   OPEN GALLERY
+===================================================== */
+
+function openGallery(index) {
+
+    currentGalleryIndex =
+        index;
+
+
+    const image =
+        galleryItems[
+            index
+        ].querySelector(
+            "img"
+        );
+
+
+    lightboxImage.src =
+        image.src;
+
+
+    lightboxImage.alt =
+        image.alt;
+
+
+    lightboxCaption.textContent =
+        "Our Beautiful Moment ♡";
+
+
+    lightbox.classList.add(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+/* =====================================================
+   CLOSE GALLERY
+===================================================== */
+
+function closeGallery() {
+
+    lightbox.classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextGallery() {
+
+    currentGalleryIndex++;
+
+
+    if (
+        currentGalleryIndex >=
+        galleryItems.length
+    ) {
+
+        currentGalleryIndex =
+            0;
+
+    }
+
+
+    openGallery(
+        currentGalleryIndex
+    );
+
+}
+
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+function previousGallery() {
+
+    currentGalleryIndex--;
+
+
+    if (
+        currentGalleryIndex < 0
+    ) {
+
+        currentGalleryIndex =
+            galleryItems.length - 1;
+
+    }
+
+
+    openGallery(
+        currentGalleryIndex
+    );
+
+}
+
+
+
+/* =====================================================
+   CLICK PHOTO
+===================================================== */
+
+galleryItems.forEach(
+    (item, index) => {
+
+        item.addEventListener(
+            "click",
+            () => {
+
+                openGallery(
+                    index
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   LIGHTBOX BUTTONS
+===================================================== */
+
+lightboxClose.addEventListener(
+    "click",
+    closeGallery
+);
+
+
+lightboxNext.addEventListener(
+    "click",
+    nextGallery
+);
+
+
+lightboxPrev.addEventListener(
+    "click",
+    previousGallery
+);
+
+
+
+/* =====================================================
+   CLICK OUTSIDE
+===================================================== */
+
+lightbox.addEventListener(
+    "click",
+    (event) => {
+
+        if (
+            event.target ===
+            lightbox
+        ) {
+
+            closeGallery();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            !lightbox.classList.contains(
+                "active"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            closeGallery();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            nextGallery();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            previousGallery();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(
+        ".event-card, .person-card, .count-box, .gallery-item, .gift-card"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.style.opacity =
+                            "1";
+
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:
+                0.12
+        }
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        element.style.opacity =
+            "0";
+
+
+        element.style.transform =
+            "translateY(25px)";
+
+
+        element.style.transition =
+            "opacity .8s ease, transform .8s ease";
+
+
+        revealObserver.observe(
+            element
+        );
+
+    }
 );
