@@ -1,12 +1,12 @@
-/* =====================================================
+/* =========================================================
    ELEGANT PINK WEDDING
-   MAIN JAVASCRIPT
-===================================================== */
+   FULL JAVASCRIPT
+========================================================= */
 
 
-/* =====================================================
+/* =========================================================
    CONFIG
-===================================================== */
+========================================================= */
 
 const CONFIG = {
 
@@ -17,15 +17,17 @@ const CONFIG = {
         "6289526612634",
 
     WEDDING_DATE:
-        "2026-12-12T08:00:00+07:00"
+        "2026-12-12T08:00:00+07:00",
+
+    ACCOUNT_NUMBER:
+        "1234567890"
 
 };
 
 
-
-/* =====================================================
+/* =========================================================
    DOM
-===================================================== */
+========================================================= */
 
 const loader =
     document.getElementById("loader");
@@ -63,35 +65,13 @@ const submitText =
 const submitLoading =
     document.getElementById("submitLoading");
 
+const nameInput =
+    document.getElementById("name");
 
 
-/* =====================================================
-   LOADER
-===================================================== */
-
-window.addEventListener(
-    "load",
-    () => {
-
-        setTimeout(
-            () => {
-
-                loader.classList.add(
-                    "hide"
-                );
-
-            },
-            1000
-        );
-
-    }
-);
-
-
-
-/* =====================================================
-   PERSONAL GUEST NAME
-===================================================== */
+/* =========================================================
+   PERSONAL GUEST
+========================================================= */
 
 function getGuestName() {
 
@@ -100,10 +80,8 @@ function getGuestName() {
             window.location.search
         );
 
-
     const guest =
         params.get("to");
-
 
     if (!guest) {
 
@@ -111,14 +89,20 @@ function getGuestName() {
 
     }
 
+    try {
 
-    return decodeURIComponent(
-        guest.replace(
-            /\+/g,
-            " "
-        )
-    ).trim()
+        return decodeURIComponent(
+            guest.replace(/\+/g, " ")
+        ).trim()
         || "Tamu Undangan";
+
+    }
+
+    catch {
+
+        return "Tamu Undangan";
+
+    }
 
 }
 
@@ -127,20 +111,20 @@ const currentGuest =
     getGuestName();
 
 
-guestNameOpening.textContent =
-    currentGuest;
+if (guestNameOpening) {
+
+    guestNameOpening.textContent =
+        currentGuest;
+
+}
 
 
-guestName.textContent =
-    currentGuest;
+if (guestName) {
 
+    guestName.textContent =
+        currentGuest;
 
-/* =====================================================
-   AUTO FILL RSVP NAME
-===================================================== */
-
-const nameInput =
-    document.getElementById("name");
+}
 
 
 if (
@@ -154,64 +138,57 @@ if (
 }
 
 
+/* =========================================================
+   LOADER
+========================================================= */
 
-/* =====================================================
-   OPEN INVITATION
-===================================================== */
+window.addEventListener(
+    "load",
+    () => {
 
-openInvitation.addEventListener(
-    "click",
-    async () => {
+        setTimeout(
+            () => {
 
-        opening.classList.add(
-            "closed"
+                if (loader) {
+
+                    loader.classList.add(
+                        "hide"
+                    );
+
+                }
+
+            },
+            900
         );
-
-
-        mainContent.classList.remove(
-            "hidden"
-        );
-
-
-        document.body.classList.remove(
-            "locked"
-        );
-
-
-        try {
-
-            await weddingMusic.play();
-
-            musicButton.classList.add(
-                "playing"
-            );
-
-        }
-
-        catch (error) {
-
-            console.log(
-                "Music membutuhkan interaksi pengguna."
-            );
-
-        }
 
     }
 );
 
 
+/* =========================================================
+   OPEN INVITATION
+========================================================= */
 
-/* =====================================================
-   MUSIC
-===================================================== */
+if (openInvitation) {
 
-musicButton.addEventListener(
-    "click",
-    async () => {
+    openInvitation.addEventListener(
+        "click",
+        async () => {
 
-        if (
-            weddingMusic.paused
-        ) {
+            opening.classList.add(
+                "closed"
+            );
+
+            mainContent.classList.remove(
+                "hidden"
+            );
+
+            document.body.classList.remove(
+                "locked"
+            );
+
+
+            /* MUSIC */
 
             try {
 
@@ -225,30 +202,69 @@ musicButton.addEventListener(
 
             catch (error) {
 
-                console.log(error);
+                console.log(
+                    "Autoplay music membutuhkan interaksi pengguna."
+                );
 
             }
 
         }
+    );
 
-        else {
+}
 
-            weddingMusic.pause();
 
-            musicButton.classList.remove(
-                "playing"
-            );
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+if (musicButton) {
+
+    musicButton.addEventListener(
+        "click",
+        async () => {
+
+            if (
+                weddingMusic.paused
+            ) {
+
+                try {
+
+                    await weddingMusic.play();
+
+                    musicButton.classList.add(
+                        "playing"
+                    );
+
+                }
+
+                catch (error) {
+
+                    console.log(error);
+
+                }
+
+            }
+
+            else {
+
+                weddingMusic.pause();
+
+                musicButton.classList.remove(
+                    "playing"
+                );
+
+            }
 
         }
+    );
 
-    }
-);
+}
 
 
-
-/* =====================================================
+/* =========================================================
    FLOATING PETALS
-===================================================== */
+========================================================= */
 
 const petalsContainer =
     document.getElementById(
@@ -257,6 +273,11 @@ const petalsContainer =
 
 
 function createPetal() {
+
+    if (!petalsContainer) {
+        return;
+    }
+
 
     const petal =
         document.createElement(
@@ -269,7 +290,7 @@ function createPetal() {
 
 
     const size =
-        Math.random() * 8 + 7;
+        Math.random() * 7 + 6;
 
 
     petal.style.width =
@@ -288,13 +309,9 @@ function createPetal() {
         `${Math.random() * 8 + 8}s`;
 
 
-    petal.style.animationDelay =
-        `${Math.random() * 4}s`;
-
-
     petal.style.setProperty(
         "--drift",
-        `${Math.random() * 250 - 125}px`
+        `${Math.random() * 220 - 110}px`
     );
 
 
@@ -317,7 +334,7 @@ function createPetal() {
 
 for (
     let i = 0;
-    i < 18;
+    i < 12;
     i++
 ) {
 
@@ -328,14 +345,13 @@ for (
 
 setInterval(
     createPetal,
-    1300
+    1800
 );
 
 
-
-/* =====================================================
+/* =========================================================
    COUNTDOWN
-===================================================== */
+========================================================= */
 
 const weddingDate =
     new Date(
@@ -353,29 +369,46 @@ function updateCountdown() {
         weddingDate - now;
 
 
+    const daysElement =
+        document.getElementById("days");
+
+    const hoursElement =
+        document.getElementById("hours");
+
+    const minutesElement =
+        document.getElementById("minutes");
+
+    const secondsElement =
+        document.getElementById("seconds");
+
+
+    if (
+        !daysElement ||
+        !hoursElement ||
+        !minutesElement ||
+        !secondsElement
+    ) {
+
+        return;
+
+    }
+
+
     if (
         difference <= 0
     ) {
 
-        document.getElementById(
-            "days"
-        ).textContent = "00";
+        daysElement.textContent =
+            "00";
 
+        hoursElement.textContent =
+            "00";
 
-        document.getElementById(
-            "hours"
-        ).textContent = "00";
+        minutesElement.textContent =
+            "00";
 
-
-        document.getElementById(
-            "minutes"
-        ).textContent = "00";
-
-
-        document.getElementById(
-            "seconds"
-        ).textContent = "00";
-
+        secondsElement.textContent =
+            "00";
 
         return;
 
@@ -419,40 +452,20 @@ function updateCountdown() {
         );
 
 
-    document.getElementById(
-        "days"
-    ).textContent =
-        String(days).padStart(
-            2,
-            "0"
-        );
+    daysElement.textContent =
+        String(days).padStart(2, "0");
 
 
-    document.getElementById(
-        "hours"
-    ).textContent =
-        String(hours).padStart(
-            2,
-            "0"
-        );
+    hoursElement.textContent =
+        String(hours).padStart(2, "0");
 
 
-    document.getElementById(
-        "minutes"
-    ).textContent =
-        String(minutes).padStart(
-            2,
-            "0"
-        );
+    minutesElement.textContent =
+        String(minutes).padStart(2, "0");
 
 
-    document.getElementById(
-        "seconds"
-    ).textContent =
-        String(seconds).padStart(
-            2,
-            "0"
-        );
+    secondsElement.textContent =
+        String(seconds).padStart(2, "0");
 
 }
 
@@ -466,229 +479,218 @@ setInterval(
 );
 
 
-
-/* =====================================================
+/* =========================================================
    RSVP
-===================================================== */
+========================================================= */
 
-rsvpForm.addEventListener(
-    "submit",
-    async (event) => {
+if (rsvpForm) {
 
-        event.preventDefault();
+    rsvpForm.addEventListener(
+        "submit",
+        async (event) => {
 
+            event.preventDefault();
 
-        const name =
-            document.getElementById(
-                "name"
-            ).value.trim();
 
+            const name =
+                document.getElementById(
+                    "name"
+                ).value.trim();
 
-        const attendance =
-            document.getElementById(
-                "attendance"
-            ).value;
 
+            const attendance =
+                document.getElementById(
+                    "attendance"
+                ).value;
 
-        const guests =
-            document.getElementById(
-                "guests"
-            ).value;
 
+            const guests =
+                document.getElementById(
+                    "guests"
+                ).value;
 
-        const message =
-            document.getElementById(
-                "message"
-            ).value.trim();
 
+            const message =
+                document.getElementById(
+                    "message"
+                ).value.trim();
 
-        if (!name) {
 
-            showStatus(
-                "Silakan masukkan nama.",
-                "error"
-            );
+            if (!name) {
 
-            return;
+                showStatus(
+                    "Silakan masukkan nama.",
+                    "error"
+                );
 
-        }
-
-
-        if (!attendance) {
-
-            showStatus(
-                "Silakan pilih kehadiran.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if (!guests) {
-
-            showStatus(
-                "Silakan pilih jumlah tamu.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        setSubmitLoading(
-            true
-        );
-
-
-        const formData =
-            new URLSearchParams();
-
-
-        formData.append(
-            "nama",
-            name
-        );
-
-
-        formData.append(
-            "kehadiran",
-            attendance
-        );
-
-
-        formData.append(
-            "jumlah_tamu",
-            guests
-        );
-
-
-        formData.append(
-            "ucapan",
-            message
-        );
-
-
-        formData.append(
-            "tamu_undangan",
-            currentGuest
-        );
-
-
-        formData.append(
-            "timestamp",
-            new Date().toLocaleString(
-                "id-ID"
-            )
-        );
-
-
-        try {
-
-
-            /* =========================================
-               GOOGLE SHEETS
-            ========================================= */
-
-            await fetch(
-                CONFIG.GOOGLE_SCRIPT_URL,
-                {
-
-                    method:
-                        "POST",
-
-                    mode:
-                        "no-cors",
-
-                    headers:
-                        {
-                            "Content-Type":
-                                "application/x-www-form-urlencoded;charset=UTF-8"
-                        },
-
-                    body:
-                        formData.toString()
-
-                }
-            );
-
-
-
-            showStatus(
-                "RSVP berhasil dikirim. Terima kasih! 💗",
-                "success"
-            );
-
-
-
-            /* =========================================
-               WHATSAPP
-            ========================================= */
-
-            setTimeout(
-                () => {
-
-                    sendWhatsApp(
-                        name,
-                        attendance,
-                        guests,
-                        message
-                    );
-
-                },
-                700
-            );
-
-
-            rsvpForm.reset();
-
-
-            if (
-                currentGuest !==
-                "Tamu Undangan"
-            ) {
-
-                nameInput.value =
-                    currentGuest;
+                return;
 
             }
 
 
-        }
+            if (!attendance) {
 
-        catch (error) {
+                showStatus(
+                    "Silakan pilih kehadiran.",
+                    "error"
+                );
 
-            console.error(
-                error
+                return;
+
+            }
+
+
+            if (!guests) {
+
+                showStatus(
+                    "Silakan pilih jumlah tamu.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            setSubmitLoading(true);
+
+
+            const formData =
+                new URLSearchParams();
+
+
+            formData.append(
+                "nama",
+                name
             );
 
 
-            showStatus(
-                "Gagal mengirim RSVP. Silakan coba lagi.",
-                "error"
+            formData.append(
+                "kehadiran",
+                attendance
             );
 
-        }
 
-
-        finally {
-
-            setSubmitLoading(
-                false
+            formData.append(
+                "jumlah_tamu",
+                guests
             );
 
+
+            formData.append(
+                "ucapan",
+                message
+            );
+
+
+            formData.append(
+                "tamu_undangan",
+                currentGuest
+            );
+
+
+            formData.append(
+                "timestamp",
+                new Date().toLocaleString(
+                    "id-ID"
+                )
+            );
+
+
+            try {
+
+                /* GOOGLE SHEETS */
+
+                await fetch(
+                    CONFIG.GOOGLE_SCRIPT_URL,
+                    {
+
+                        method:
+                            "POST",
+
+                        mode:
+                            "no-cors",
+
+                        headers:
+                            {
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded;charset=UTF-8"
+                            },
+
+                        body:
+                            formData.toString()
+
+                    }
+                );
+
+
+                showStatus(
+                    "RSVP berhasil dikirim. Terima kasih! 💗",
+                    "success"
+                );
+
+
+                /* WHATSAPP */
+
+                setTimeout(
+                    () => {
+
+                        sendWhatsApp(
+                            name,
+                            attendance,
+                            guests,
+                            message
+                        );
+
+                    },
+                    700
+                );
+
+
+                rsvpForm.reset();
+
+
+                if (
+                    currentGuest !==
+                    "Tamu Undangan"
+                ) {
+
+                    nameInput.value =
+                        currentGuest;
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                showStatus(
+                    "Gagal mengirim RSVP. Silakan coba lagi.",
+                    "error"
+                );
+
+            }
+
+            finally {
+
+                setSubmitLoading(false);
+
+            }
+
         }
+    );
 
-    }
-);
+}
 
 
-
-/* =====================================================
+/* =========================================================
    WHATSAPP
-===================================================== */
+========================================================= */
 
 function sendWhatsApp(
     name,
@@ -696,7 +698,6 @@ function sendWhatsApp(
     guests,
     message
 ) {
-
 
     const text =
 
@@ -719,14 +720,9 @@ Terima kasih. 💗`;
     const whatsappURL =
 
         "https://wa.me/" +
-
         CONFIG.WHATSAPP_NUMBER +
-
         "?text=" +
-
-        encodeURIComponent(
-            text
-        );
+        encodeURIComponent(text);
 
 
     window.open(
@@ -737,15 +733,19 @@ Terima kasih. 💗`;
 }
 
 
-
-/* =====================================================
-   RSVP STATUS
-===================================================== */
+/* =========================================================
+   STATUS
+========================================================= */
 
 function showStatus(
     message,
     type
 ) {
+
+    if (!rsvpStatus) {
+        return;
+    }
+
 
     rsvpStatus.textContent =
         message;
@@ -770,14 +770,24 @@ function showStatus(
 }
 
 
-
-/* =====================================================
+/* =========================================================
    SUBMIT LOADING
-===================================================== */
+========================================================= */
 
 function setSubmitLoading(
     loading
 ) {
+
+    if (
+        !rsvpForm ||
+        !submitText ||
+        !submitLoading
+    ) {
+
+        return;
+
+    }
+
 
     const button =
         rsvpForm.querySelector(
@@ -790,11 +800,9 @@ function setSubmitLoading(
         button.disabled =
             true;
 
-
         submitText.classList.add(
             "hidden"
         );
-
 
         submitLoading.classList.remove(
             "hidden"
@@ -807,11 +815,9 @@ function setSubmitLoading(
         button.disabled =
             false;
 
-
         submitText.classList.remove(
             "hidden"
         );
-
 
         submitLoading.classList.add(
             "hidden"
@@ -822,48 +828,61 @@ function setSubmitLoading(
 }
 
 
-
-/* =====================================================
-   COPY BANK
-===================================================== */
+/* =========================================================
+   COPY ACCOUNT
+========================================================= */
 
 function copyAccount() {
 
     const accountNumber =
-        "1234567890";
+        CONFIG.ACCOUNT_NUMBER;
 
 
-    navigator.clipboard
-        .writeText(
+    if (
+        navigator.clipboard
+    ) {
+
+        navigator.clipboard
+            .writeText(
+                accountNumber
+            )
+            .then(
+                () => {
+
+                    alert(
+                        "Nomor rekening berhasil disalin 💗"
+                    );
+
+                }
+            )
+            .catch(
+                () => {
+
+                    alert(
+                        "Nomor rekening: " +
+                        accountNumber
+                    );
+
+                }
+            );
+
+    }
+
+    else {
+
+        alert(
+            "Nomor rekening: " +
             accountNumber
-        )
-        .then(
-            () => {
-
-                alert(
-                    "Nomor rekening berhasil disalin 💗"
-                );
-
-            }
-        )
-        .catch(
-            () => {
-
-                alert(
-                    "Nomor rekening: " +
-                    accountNumber
-                );
-
-            }
         );
+
+    }
 
 }
 
 
-
-/* =====================================================
+/* =========================================================
    GALLERY
-===================================================== */
+========================================================= */
 
 const galleryItems =
     document.querySelectorAll(
@@ -911,12 +930,20 @@ let currentGalleryIndex =
     0;
 
 
-
-/* =====================================================
+/* =========================================================
    OPEN GALLERY
-===================================================== */
+========================================================= */
 
 function openGallery(index) {
+
+    if (
+        !galleryItems.length
+    ) {
+
+        return;
+
+    }
+
 
     currentGalleryIndex =
         index;
@@ -928,6 +955,11 @@ function openGallery(index) {
         ].querySelector(
             "img"
         );
+
+
+    if (!image) {
+        return;
+    }
 
 
     lightboxImage.src =
@@ -953,12 +985,16 @@ function openGallery(index) {
 }
 
 
-
-/* =====================================================
+/* =========================================================
    CLOSE GALLERY
-===================================================== */
+========================================================= */
 
 function closeGallery() {
+
+    if (!lightbox) {
+        return;
+    }
+
 
     lightbox.classList.remove(
         "active"
@@ -971,10 +1007,9 @@ function closeGallery() {
 }
 
 
-
-/* =====================================================
+/* =========================================================
    NEXT
-===================================================== */
+========================================================= */
 
 function nextGallery() {
 
@@ -999,10 +1034,9 @@ function nextGallery() {
 }
 
 
-
-/* =====================================================
+/* =========================================================
    PREVIOUS
-===================================================== */
+========================================================= */
 
 function previousGallery() {
 
@@ -1026,10 +1060,9 @@ function previousGallery() {
 }
 
 
-
-/* =====================================================
-   CLICK PHOTO
-===================================================== */
+/* =========================================================
+   GALLERY CLICK
+========================================================= */
 
 galleryItems.forEach(
     (item, index) => {
@@ -1049,61 +1082,75 @@ galleryItems.forEach(
 );
 
 
+/* =========================================================
+   LIGHTBOX CONTROLS
+========================================================= */
 
-/* =====================================================
-   LIGHTBOX BUTTONS
-===================================================== */
+if (lightboxClose) {
 
-lightboxClose.addEventListener(
-    "click",
-    closeGallery
-);
+    lightboxClose.addEventListener(
+        "click",
+        closeGallery
+    );
 
-
-lightboxNext.addEventListener(
-    "click",
-    nextGallery
-);
+}
 
 
-lightboxPrev.addEventListener(
-    "click",
-    previousGallery
-);
+if (lightboxNext) {
+
+    lightboxNext.addEventListener(
+        "click",
+        nextGallery
+    );
+
+}
 
 
+if (lightboxPrev) {
 
-/* =====================================================
+    lightboxPrev.addEventListener(
+        "click",
+        previousGallery
+    );
+
+}
+
+
+/* =========================================================
    CLICK OUTSIDE
-===================================================== */
+========================================================= */
 
-lightbox.addEventListener(
-    "click",
-    (event) => {
+if (lightbox) {
 
-        if (
-            event.target ===
-            lightbox
-        ) {
+    lightbox.addEventListener(
+        "click",
+        (event) => {
 
-            closeGallery();
+            if (
+                event.target ===
+                lightbox
+            ) {
+
+                closeGallery();
+
+            }
 
         }
+    );
 
-    }
-);
+}
 
 
-
-/* =====================================================
+/* =========================================================
    KEYBOARD
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     "keydown",
     (event) => {
 
         if (
+            !lightbox ||
             !lightbox.classList.contains(
                 "active"
             )
@@ -1147,10 +1194,9 @@ document.addEventListener(
 );
 
 
-
-/* =====================================================
+/* =========================================================
    SCROLL REVEAL
-===================================================== */
+========================================================= */
 
 const revealElements =
     document.querySelectorAll(
@@ -1158,55 +1204,62 @@ const revealElements =
     );
 
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
+if (
+    "IntersectionObserver"
+    in window
+) {
 
-            entries.forEach(
-                entry => {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                entries.forEach(
+                    entry => {
 
-                        entry.target.style.opacity =
-                            "1";
+                        if (
+                            entry.isIntersecting
+                        ) {
 
+                            entry.target.style.opacity =
+                                "1";
 
-                        entry.target.style.transform =
-                            "translateY(0)";
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
 
                     }
+                );
 
-                }
+            },
+            {
+                threshold:
+                    0.12
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            element.style.opacity =
+                "0";
+
+            element.style.transform =
+                "translateY(25px)";
+
+            element.style.transition =
+                "opacity .8s ease, transform .8s ease";
+
+            revealObserver.observe(
+                element
             );
 
-        },
-        {
-            threshold:
-                0.12
         }
     );
 
-
-revealElements.forEach(
-    element => {
-
-        element.style.opacity =
-            "0";
-
-
-        element.style.transform =
-            "translateY(25px)";
-
-
-        element.style.transition =
-            "opacity .8s ease, transform .8s ease";
-
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
+}
