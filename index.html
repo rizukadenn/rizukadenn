@@ -1,159 +1,132 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
 
-    <meta name="theme-color"
-          content="#b9687d">
+    <meta
+        name="description"
+        content="The Wedding of Our Beloved Couple"
+    >
 
-    <meta name="description"
-          content="Wedding Invitation Vica & Rahasia">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>Vica & Rahasia — Wedding Invitation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<!-- =========================================
+     LOADING
+========================================= -->
 
-<!-- =====================================================
-     LOADER
-===================================================== -->
+<div id="loadingScreen">
 
-<div id="loader">
+    <div class="loading-content">
 
-    <div class="loader-inner">
+        <div class="loading-ring"></div>
 
-        <div class="loader-ring"></div>
-
-        <div class="loader-heart">
-            ♡
-        </div>
-
-        <p>
-            Preparing our special day...
-        </p>
+        <p>Preparing something beautiful...</p>
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
-     FLOATING PETALS
-===================================================== -->
-
-<div id="petals"
-     class="petals">
-</div>
-
-
-<!-- =====================================================
+<!-- =========================================
      MUSIC
-===================================================== -->
+========================================= -->
 
-<audio id="weddingMusic"
-       loop
-       preload="auto">
-
+<audio
+    id="weddingMusic"
+    loop
+    preload="auto"
+>
     <source
         src="assets/Westlife_-_Beautifull_in_White_(mp3.pm).mp3"
-        type="audio/mpeg">
-
+        type="audio/mpeg"
+    >
 </audio>
 
 
-<button id="musicButton"
-        class="music-button"
-        aria-label="Music">
-
-    ♫
-
+<button
+    id="musicButton"
+    class="music-button"
+    aria-label="Musik"
+>
+    ♪
 </button>
 
 
-<!-- =====================================================
-     OPENING
-===================================================== -->
+<!-- =========================================
+     FLOATING DECORATION
+========================================= -->
 
-<section id="opening"
-         class="opening">
+<div class="floating-elements">
 
-    <div class="opening-decoration decoration-left"></div>
+    <span>♡</span>
+    <span>✦</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✦</span>
+    <span>♡</span>
 
-    <div class="opening-decoration decoration-right"></div>
+</div>
 
 
-    <div class="opening-content">
+<!-- =========================================
+     COVER
+========================================= -->
 
-        <p class="opening-small">
+<section
+    class="cover"
+    id="cover"
+>
+
+    <div class="cover-overlay"></div>
+
+    <div class="cover-content">
+
+        <p class="small-title">
             THE WEDDING OF
         </p>
 
-
         <h1>
-            V
-            <span>&</span>
-            R
+            V & V
         </h1>
 
-
         <div class="ornament">
-
-            <span></span>
-
-            ♡
-
-            <span></span>
-
+            ✦
         </div>
 
-
-        <p class="opening-date">
-            12 · 12 · 2026
+        <p class="cover-date">
+            12 • 12 • 2026
         </p>
-
 
         <p class="guest-label">
-            Dear,
+            Kepada Yth.
         </p>
 
-
-        <h2 id="guestNameOpening">
+        <h2 id="guestName">
             Tamu Undangan
         </h2>
 
-
-        <button id="openInvitation"
-                class="open-button">
-
-            <span>
-                Open Invitation
-            </span>
-
-            <span>
-                ♡
-            </span>
-
+        <button
+            id="openInvitation"
+            class="primary-button"
+        >
+            <span>♡</span>
+            Buka Undangan
         </button>
 
     </div>
@@ -161,76 +134,43 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================
      MAIN CONTENT
-===================================================== -->
+========================================= -->
 
-<main id="mainContent"
-      class="hidden">
+<main id="mainContent" class="hidden">
 
 
-<!-- =====================================================
+<!-- =========================================
      HERO
-===================================================== -->
+========================================= -->
 
-<section class="hero">
+<section class="hero section">
 
-    <div class="hero-glow glow-one"></div>
-
-    <div class="hero-glow glow-two"></div>
-
-
-    <div class="hero-content">
+    <div class="section-inner">
 
         <p class="eyebrow">
-            THE WEDDING CELEBRATION
+            WE ARE GETTING MARRIED
         </p>
 
-
-        <h1>
-            Vica
+        <h2 class="couple-title">
+            Vicko
             <span>&</span>
-            Rahasia
-        </h1>
+            Vica
+        </h2>
 
-
-        <p class="hero-description">
-
-            Dengan penuh rasa syukur dan bahagia,
-            kami mengundang Anda untuk menjadi
+        <p class="hero-text">
+            Dengan penuh kebahagiaan, kami mengundang
+            Bapak/Ibu/Saudara/i untuk hadir dan menjadi
             bagian dari hari istimewa kami.
-            TAPI PREEENGGGG 
-
         </p>
-
 
         <div class="hero-date">
-
-            <span>
-                12
-            </span>
-
+            <span>12</span>
             <div>
-
-                <small>
-                    DECEMBER
-                </small>
-
-                <strong>
-                    2026
-                </strong>
-
+                <small>DECEMBER</small>
+                <strong>2026</strong>
             </div>
-
-        </div>
-
-
-        <div class="scroll-indicator">
-
-            <span></span>
-
-            Scroll to explore
-
         </div>
 
     </div>
@@ -238,170 +178,75 @@
 </section>
 
 
-<!-- =====================================================
-     PERSONAL GUEST
-===================================================== -->
-
-<section class="guest-section">
-
-    <div class="container narrow">
-
-        <div class="section-symbol">
-            ♡
-        </div>
-
-
-        <p class="eyebrow">
-            A SPECIAL INVITATION
-        </p>
-
-
-        <h2>
-
-            Dear,
-
-            <span id="guestName">
-                Tamu Undangan
-            </span>
-
-        </h2>
-
-
-        <p>
-
-            Tanpa mengurangi rasa hormat,
-            kami dengan bahagia mengundang
-            Anda untuk hadir dan memberikan
-            doa restu di hari pernikahan kami.
-
-        </p>
-
-
-        <div class="gold-line"></div>
-
-
-        <p class="guest-note">
-
-            Kehadiran Anda akan menjadi
-            salah satu hadiah terindah bagi kami.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
+<!-- =========================================
      COUPLE
-===================================================== -->
+========================================= -->
 
-<section class="couple-section">
+<section class="couple section">
 
-    <div class="container">
+    <div class="section-inner">
 
         <p class="eyebrow">
-            THE COUPLE
+            THE HAPPY COUPLE
         </p>
-
 
         <h2 class="section-title">
-
-            Two Hearts,
-            <br>
-
-            One Beautiful Journey
-
+            Bride & Groom
         </h2>
 
-
         <div class="couple-grid">
-
-
-            <!-- BRIDE -->
 
             <div class="person-card">
 
                 <div class="person-photo">
-
                     <img
-                        src="assets/vica.jpg"
-                        alt="Vica"
-                        loading="lazy">
-
+                        src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=80"
+                        alt="Bride"
+                    >
                 </div>
-
 
                 <h3>
                     Vica
                 </h3>
 
-
-                <p class="role">
-                    The Bride
+                <p>
+                    Vica Putri
                 </p>
 
-
-                <p class="parents">
-
-                    Putri pertama dari
-                    <br>
-
-                    Bapak Nama Ayah
-                    <br>
-
-                    & Ibu Nama Ibu
-
-                </p>
+                <span>
+                    Daughter of Mr. Father & Mrs. Mother
+                </span>
 
             </div>
 
-
-            <!-- AMPERSAND -->
 
             <div class="ampersand">
                 &
             </div>
 
 
-            <!-- GROOM -->
-
             <div class="person-card">
 
                 <div class="person-photo">
-
                     <img
-                        src="assets/rahasia.jpg"
-                        alt="Rahasia"
-                        loading="lazy">
-
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80"
+                        alt="Groom"
+                    >
                 </div>
-
 
                 <h3>
-                    Rahasia
+                    Vicko
                 </h3>
 
-
-                <p class="role">
-                    The Groom
+                <p>
+                    Vicko Pratama
                 </p>
 
-
-                <p class="parents">
-
-                    Putra pertama dari
-                    <br>
-
-                    Bapak Nama Ayah
-                    <br>
-
-                    & Ibu Nama Ibu
-
-                </p>
+                <span>
+                    Son of Mr. Father & Mrs. Mother
+                </span>
 
             </div>
-
 
         </div>
 
@@ -410,145 +255,85 @@
 </section>
 
 
-<!-- =====================================================
-     QUOTE
-===================================================== -->
+<!-- =========================================
+     STORY
+========================================= -->
 
-<section class="quote-section">
+<section class="story section">
 
-    <div class="container narrow">
-
-        <p class="quote">
-
-            "And so, together,
-            we built a life we love."
-
-        </p>
-
-
-        <p class="quote-author">
-            Vica & Rahasia
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PHOTO GALLERY
-===================================================== -->
-
-<section class="gallery-section">
-
-    <div class="container">
+    <div class="section-inner narrow">
 
         <p class="eyebrow">
-            OUR MEMORIES
+            OUR STORY
         </p>
-
 
         <h2 class="section-title">
-
-            Moments We Cherish
-
+            A Journey of Love
         </h2>
 
+        <div class="story-line">
 
-        <p class="gallery-description">
+            <div class="story-item">
 
-            Beberapa momen indah yang menjadi
-            bagian dari perjalanan cinta kami.
+                <span class="story-year">
+                    2020
+                </span>
 
-        </p>
+                <div>
+                    <h3>
+                        The Beginning
+                    </h3>
 
-
-        <div class="gallery-grid">
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/foto1.jpg"
-                    alt="Our Memory 1"
-                    loading="lazy">
-
-                <div class="gallery-overlay">
-                    <span>♡</span>
+                    <p>
+                        Semua berawal dari sebuah pertemuan
+                        sederhana yang kemudian menjadi
+                        cerita indah dalam kehidupan kami.
+                    </p>
                 </div>
 
             </div>
 
 
-            <div class="gallery-item">
+            <div class="story-item">
 
-                <img
-                    src="assets/foto2.jpg"
-                    alt="Our Memory 2"
-                    loading="lazy">
+                <span class="story-year">
+                    2023
+                </span>
 
-                <div class="gallery-overlay">
-                    <span>♡</span>
+                <div>
+                    <h3>
+                        Growing Together
+                    </h3>
+
+                    <p>
+                        Bersama melewati berbagai cerita,
+                        tumbuh, belajar dan saling mendukung.
+                    </p>
+
                 </div>
 
             </div>
 
 
-            <div class="gallery-item">
+            <div class="story-item">
 
-                <img
-                    src="assets/foto3.jpg"
-                    alt="Our Memory 3"
-                    loading="lazy">
+                <span class="story-year">
+                    2026
+                </span>
 
-                <div class="gallery-overlay">
-                    <span>♡</span>
+                <div>
+                    <h3>
+                        Forever Begins
+                    </h3>
+
+                    <p>
+                        Hari dimana kami memulai babak
+                        baru dalam perjalanan kehidupan.
+                    </p>
+
                 </div>
 
             </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/foto4.jpg"
-                    alt="Our Memory 4"
-                    loading="lazy">
-
-                <div class="gallery-overlay">
-                    <span>♡</span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/foto5.jpg"
-                    alt="Our Memory 5"
-                    loading="lazy">
-
-                <div class="gallery-overlay">
-                    <span>♡</span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/foto6.jpg"
-                    alt="Our Memory 6"
-                    loading="lazy">
-
-                <div class="gallery-overlay">
-                    <span>♡</span>
-                </div>
-
-            </div>
-
 
         </div>
 
@@ -557,168 +342,43 @@
 </section>
 
 
-<!-- =====================================================
-     LIGHTBOX
-===================================================== -->
+<!-- =========================================
+     COUNTDOWN
+========================================= -->
 
-<div id="lightbox"
-     class="lightbox">
+<section class="countdown section">
 
-    <button id="lightboxClose"
-            class="lightbox-close">
-
-        ×
-
-    </button>
-
-
-    <button id="lightboxPrev"
-            class="lightbox-nav lightbox-prev">
-
-        ‹
-
-    </button>
-
-
-    <div class="lightbox-content">
-
-        <img
-            id="lightboxImage"
-            src=""
-            alt="Wedding memory">
-
-
-        <p id="lightboxCaption">
-            Our Beautiful Moment ♡
-        </p>
-
-    </div>
-
-
-    <button id="lightboxNext"
-            class="lightbox-nav lightbox-next">
-
-        ›
-
-    </button>
-
-</div>
-
-
-<!-- =====================================================
-     EVENT
-===================================================== -->
-
-<section class="event-section">
-
-    <div class="container">
+    <div class="section-inner">
 
         <p class="eyebrow">
             SAVE THE DATE
         </p>
 
-
         <h2 class="section-title">
-            Join Us
+            Counting Down
         </h2>
 
+        <div class="countdown-grid">
 
-        <div class="events-grid">
-
-
-            <!-- AKAD -->
-
-            <div class="event-card">
-
-                <p class="event-label">
-                    AKAD NIKAH
-                </p>
-
-
-                <h3>
-                    The Ceremony
-                </h3>
-
-
-                <p class="event-date">
-                    Sabtu, 12 Desember 2026
-                </p>
-
-
-                <p class="event-time">
-                    08.00 WIB — selesai
-                </p>
-
-
-                <p class="event-location">
-
-                    Gedung Pernikahan
-                    <br>
-
-                    Jl. Contoh No. 123
-
-                </p>
-
-
-                <a
-                    href="https://maps.google.com/"
-                    target="_blank"
-                    rel="noopener"
-                    class="location-button">
-
-                    View Location
-
-                </a>
-
+            <div class="count-card">
+                <strong id="days">00</strong>
+                <span>Days</span>
             </div>
 
-
-            <!-- RESEPSI -->
-
-            <div class="event-card">
-
-                <p class="event-label">
-                    RESEPSI
-                </p>
-
-
-                <h3>
-                    The Celebration
-                </h3>
-
-
-                <p class="event-date">
-                    Sabtu, 12 Desember 2026
-                </p>
-
-
-                <p class="event-time">
-                    11.00 WIB — selesai
-                </p>
-
-
-                <p class="event-location">
-
-                    Gedung Pernikahan
-                    <br>
-
-                    Jl. Contoh No. 123
-
-                </p>
-
-
-                <a
-                    href="https://maps.google.com/"
-                    target="_blank"
-                    rel="noopener"
-                    class="location-button">
-
-                    View Location
-
-                </a>
-
+            <div class="count-card">
+                <strong id="hours">00</strong>
+                <span>Hours</span>
             </div>
 
+            <div class="count-card">
+                <strong id="minutes">00</strong>
+                <span>Minutes</span>
+            </div>
+
+            <div class="count-card">
+                <strong id="seconds">00</strong>
+                <span>Seconds</span>
+            </div>
 
         </div>
 
@@ -727,83 +387,92 @@
 </section>
 
 
-<!-- =====================================================
-     COUNTDOWN
-===================================================== -->
+<!-- =========================================
+     EVENT
+========================================= -->
 
-<section class="countdown-section">
+<section class="event section">
 
-    <div class="container">
+    <div class="section-inner">
 
         <p class="eyebrow">
-            COUNTING DOWN
+            JOIN US
         </p>
 
-
         <h2 class="section-title">
-
-            Until We Say
-            <br>
-
-            <i>"I Do"</i>
-
+            Wedding Day
         </h2>
 
+        <div class="event-grid">
 
-        <div class="countdown">
+            <div class="event-card">
 
+                <div class="event-icon">
+                    ♡
+                </div>
 
-            <div class="count-box">
+                <h3>
+                    Akad Nikah
+                </h3>
 
-                <strong id="days">
-                    00
+                <p>
+                    Sabtu, 12 Desember 2026
+                </p>
+
+                <strong>
+                    09.00 WIB
                 </strong>
 
                 <span>
-                    Days
+                    Gedung Pernikahan
+                    <br>
+                    Jakarta
                 </span>
+
+                <a
+                    href="https://maps.google.com/"
+                    target="_blank"
+                    class="outline-button"
+                >
+                    Lihat Lokasi
+                </a>
 
             </div>
 
 
-            <div class="count-box">
+            <div class="event-card">
 
-                <strong id="hours">
-                    00
+                <div class="event-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Resepsi
+                </h3>
+
+                <p>
+                    Sabtu, 12 Desember 2026
+                </p>
+
+                <strong>
+                    11.00 - 14.00 WIB
                 </strong>
 
                 <span>
-                    Hours
+                    Gedung Pernikahan
+                    <br>
+                    Jakarta
                 </span>
 
-            </div>
-
-
-            <div class="count-box">
-
-                <strong id="minutes">
-                    00
-                </strong>
-
-                <span>
-                    Minutes
-                </span>
+                <a
+                    href="https://maps.google.com/"
+                    target="_blank"
+                    class="outline-button"
+                >
+                    Lihat Lokasi
+                </a>
 
             </div>
-
-
-            <div class="count-box">
-
-                <strong id="seconds">
-                    00
-                </strong>
-
-                <span>
-                    Seconds
-                </span>
-
-            </div>
-
 
         </div>
 
@@ -812,49 +481,116 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================
+     GALLERY
+========================================= -->
+
+<section class="gallery section">
+
+    <div class="section-inner">
+
+        <p class="eyebrow">
+            OUR MOMENTS
+        </p>
+
+        <h2 class="section-title">
+            Gallery
+        </h2>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item gallery-large">
+
+                <img
+                    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80"
+                    alt="Wedding moment"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80"
+                    alt="Wedding moment"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80"
+                    alt="Wedding moment"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=700&q=80"
+                    alt="Wedding moment"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=700&q=80"
+                    alt="Wedding moment"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
      RSVP
-===================================================== -->
+========================================= -->
 
-<section id="rsvp"
-         class="rsvp-section">
+<section class="rsvp section">
 
-    <div class="container narrow">
+    <div class="section-inner narrow">
 
         <p class="eyebrow">
             RSVP
         </p>
 
-
         <h2 class="section-title">
             Will You Join Us?
         </h2>
 
-
         <p class="rsvp-description">
-
-            Mohon konfirmasi kehadiran Anda.
-            Data yang dikirim akan tersimpan
-            pada daftar RSVP kami.
-
+            Mohon konfirmasi kehadiran Anda untuk
+            membantu kami mempersiapkan hari istimewa ini.
         </p>
 
 
-        <form id="rsvpForm">
-
+        <form id="rsvpForm" class="rsvp-form">
 
             <div class="input-group">
 
-                <label for="name">
+                <label for="rsvpName">
                     Nama
                 </label>
 
                 <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="rsvpName"
                     placeholder="Nama lengkap"
-                    required>
+                    required
+                >
 
             </div>
 
@@ -862,15 +598,16 @@
             <div class="input-group">
 
                 <label for="attendance">
-                    Kehadiran
+                    Konfirmasi Kehadiran
                 </label>
 
                 <select
                     id="attendance"
-                    required>
+                    required
+                >
 
                     <option value="">
-                        Pilih konfirmasi
+                        Pilih jawaban
                     </option>
 
                     <option value="Hadir">
@@ -878,7 +615,7 @@
                     </option>
 
                     <option value="Tidak Hadir">
-                        Maaf, saya tidak dapat hadir
+                        Maaf, tidak dapat hadir
                     </option>
 
                 </select>
@@ -888,17 +625,11 @@
 
             <div class="input-group">
 
-                <label for="guests">
+                <label for="guestCount">
                     Jumlah Tamu
                 </label>
 
-                <select
-                    id="guests"
-                    required>
-
-                    <option value="">
-                        Pilih jumlah
-                    </option>
+                <select id="guestCount">
 
                     <option value="1">
                         1 Orang
@@ -923,100 +654,132 @@
 
             <div class="input-group">
 
-                <label for="message">
-                    Ucapan & Doa
+                <label for="rsvpMessage">
+                    Pesan
                 </label>
 
                 <textarea
-                    id="message"
+                    id="rsvpMessage"
+                    placeholder="Pesan untuk kedua mempelai..."
                     rows="4"
-                    placeholder="Tuliskan ucapan untuk kedua mempelai..."></textarea>
+                ></textarea>
 
             </div>
 
 
             <button
                 type="submit"
-                class="submit-button">
-
-                <span id="submitText">
-                    Kirim RSVP
-                </span>
-
-                <span id="submitLoading"
-                      class="hidden">
-
-                    Mengirim...
-
-                </span>
-
+                class="primary-button full-button"
+            >
+                Kirim RSVP
             </button>
-
-
-            <p id="rsvpStatus"
-               class="rsvp-status">
-            </p>
 
         </form>
 
+
+        <div
+            id="rsvpStatus"
+            class="form-status"
+        ></div>
+
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     WEDDING GIFT
-===================================================== -->
+<!-- =========================================
+     GUESTBOOK
+========================================= -->
 
-<section class="gift-section">
+<section
+    class="guestbook-section section"
+    id="guestbook"
+>
 
-    <div class="container narrow">
+    <div class="section-inner narrow">
 
         <p class="eyebrow">
-            WEDDING GIFT
+            GUESTBOOK
         </p>
-
 
         <h2 class="section-title">
-            Your Love Is Our Gift
+            Ucapan & Doa
         </h2>
 
-
-        <p>
-
-            Doa dan kehadiran Anda adalah hadiah
-            yang paling berarti bagi kami.
-
-            Namun apabila ingin memberikan
-            tanda kasih, dapat melalui:
-
+        <p class="guestbook-description">
+            Tinggalkan ucapan dan doa terbaik untuk
+            kedua mempelai.
         </p>
 
 
-        <div class="gift-card">
+        <div class="guestbook-card">
 
-            <div class="bank-logo">
-                BANK
+            <form id="guestbookForm">
+
+                <div class="input-group">
+
+                    <label for="commentName">
+                        Nama
+                    </label>
+
+                    <input
+                        type="text"
+                        id="commentName"
+                        placeholder="Nama kamu"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="commentMessage">
+                        Ucapan
+                    </label>
+
+                    <textarea
+                        id="commentMessage"
+                        rows="5"
+                        placeholder="Tuliskan ucapan dan doa..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button full-button"
+                >
+                    <span>♡</span>
+                    Kirim Ucapan
+                </button>
+
+            </form>
+
+
+            <div
+                id="commentStatus"
+                class="form-status"
+            ></div>
+
+
+            <div class="comments-container">
+
+                <h3>
+                    Ucapan dari Tamu
+                </h3>
+
+                <div id="commentsList">
+
+                    <div class="loading-comments">
+                        Memuat ucapan...
+                    </div>
+
+                </div>
+
             </div>
-
-
-            <h3>
-                1234567890
-            </h3>
-
-
-            <p>
-                Vica Rahasia
-            </p>
-
-
-            <button
-                class="copy-button"
-                onclick="copyAccount()">
-
-                Copy Account Number
-
-            </button>
 
         </div>
 
@@ -1025,56 +788,40 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================
      CLOSING
-===================================================== -->
+========================================= -->
 
-<section class="closing-section">
+<section class="closing section">
 
-    <div class="closing-content">
+    <div class="section-inner">
 
-        <div class="closing-flower">
-            ✿
-        </div>
-
-
-        <p class="eyebrow">
-            WITH LOVE
-        </p>
-
-
-        <h2>
-            Thank You
-        </h2>
-
-
-        <p>
-
-            Merupakan suatu kehormatan dan
-            kebahagiaan bagi kami apabila
-            Anda berkenan hadir dan memberikan
-            doa restu.
-
-        </p>
-
-
-        <div class="closing-names">
-            Vica & Rahasia
-        </div>
-
-
-        <div class="closing-heart">
+        <div class="closing-ornament">
             ♡
         </div>
 
+        <p class="closing-text">
+            Merupakan suatu kehormatan dan kebahagiaan
+            bagi kami apabila Anda berkenan hadir
+            dan memberikan doa restu.
+        </p>
+
+        <h2>
+            Vicko & Vica
+        </h2>
+
+        <p class="closing-date">
+            12 • 12 • 2026
+        </p>
+
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================
      FOOTER
-===================================================== -->
+========================================= -->
 
 <footer>
 
@@ -1089,56 +836,6 @@
 
 
 <script src="script.js"></script>
-<section class="guestbook-section" id="guestbook">
-    <div class="section-title">
-        <span>♡</span>
-        <h2>Ucapan & Doa</h2>
-        <p>Berikan ucapan terbaik untuk kedua mempelai</p>
-    </div>
 
-    <div class="guestbook-card">
-
-        <form id="guestbookForm">
-
-            <div class="input-group">
-                <label for="commentName">Nama</label>
-                <input
-                    type="text"
-                    id="commentName"
-                    placeholder="Masukkan nama kamu"
-                    required
-                >
-            </div>
-
-            <div class="input-group">
-                <label for="commentMessage">Ucapan</label>
-                <textarea
-                    id="commentMessage"
-                    placeholder="Tuliskan ucapan dan doa..."
-                    rows="4"
-                    required
-                ></textarea>
-            </div>
-
-            <button type="submit" class="comment-btn">
-                <span>♡</span> Kirim Ucapan
-            </button>
-
-        </form>
-
-        <div id="commentStatus"></div>
-
-        <div class="comments-container">
-            <h3>Ucapan dari Tamu</h3>
-
-            <div id="commentsList">
-                <div class="loading-comments">
-                    Memuat ucapan...
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
 </body>
 </html>
