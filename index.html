@@ -1089,6 +1089,56 @@
 
 
 <script src="script.js"></script>
+<section class="guestbook-section" id="guestbook">
+    <div class="section-title">
+        <span>♡</span>
+        <h2>Ucapan & Doa</h2>
+        <p>Berikan ucapan terbaik untuk kedua mempelai</p>
+    </div>
 
+    <div class="guestbook-card">
+
+        <form id="guestbookForm">
+
+            <div class="input-group">
+                <label for="commentName">Nama</label>
+                <input
+                    type="text"
+                    id="commentName"
+                    placeholder="Masukkan nama kamu"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="commentMessage">Ucapan</label>
+                <textarea
+                    id="commentMessage"
+                    placeholder="Tuliskan ucapan dan doa..."
+                    rows="4"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="comment-btn">
+                <span>♡</span> Kirim Ucapan
+            </button>
+
+        </form>
+
+        <div id="commentStatus"></div>
+
+        <div class="comments-container">
+            <h3>Ucapan dari Tamu</h3>
+
+            <div id="commentsList">
+                <div class="loading-comments">
+                    Memuat ucapan...
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 </body>
 </html>
