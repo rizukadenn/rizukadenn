@@ -1,538 +1,1208 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Magical Birthday 💙</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="theme-color"
+          content="#b9687d">
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <meta name="description"
+          content="Wedding Invitation Aulia & Rizky">
 
-    <link rel="stylesheet" href="style.css">
+    <title>Aulia & Rizky — Wedding Invitation</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
 
+
 <body>
-
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
-<div class="sky-background">
-
-    <div class="moon"></div>
-
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
-
-    <div id="stars"></div>
-
-</div>
-
-
-<!-- =====================================================
-     PARTICLES
-===================================================== -->
-
-<div id="particles"></div>
 
 
 <!-- =====================================================
      LOADING SCREEN
 ===================================================== -->
 
-<section id="loadingScreen" class="loading-screen">
+<div id="loader">
 
-    <div class="loading-content">
+    <div class="loader-inner">
 
-        <div class="loading-heart">♡</div>
+        <div class="loader-ring"></div>
 
-        <h1>Something magical is coming...</h1>
-
-        <p>Preparing a little birthday surprise</p>
-
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
+        <div class="loader-heart">
+            ♡
         </div>
 
-        <span class="loading-percent">0%</span>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ENVELOPE SCREEN
-===================================================== -->
-
-<section id="envelopeScreen" class="envelope-screen hidden">
-
-    <div class="envelope-area">
-
-        <div class="floating-word">a little surprise for you ♡</div>
-
-        <div id="envelope" class="envelope">
-
-            <div class="envelope-back"></div>
-
-            <div class="envelope-paper">
-
-                <div class="paper-content">
-                    <span>For someone special</span>
-                    <strong>💙</strong>
-                </div>
-
-            </div>
-
-            <div class="envelope-front"></div>
-
-            <div class="envelope-flap"></div>
-
-            <div class="envelope-seal">♥</div>
-
-        </div>
-
-        <p class="click-envelope">
-            Tap the envelope
-            <span>✨</span>
+        <p>
+            Preparing our special day...
         </p>
 
     </div>
 
-</section>
+</div>
 
-
-<!-- =====================================================
-     NAME REVEAL
-===================================================== -->
-
-<section id="nameScreen" class="name-screen hidden">
-
-    <div class="name-glow"></div>
-
-    <p class="tiny-text">this little surprise is made especially for</p>
-
-    <h1 class="receiver-name">
-        Someone Special
-    </h1>
-
-    <div class="name-line"></div>
-
-    <p class="name-message">
-        because today deserves a little extra magic ✨
-    </p>
-
-    <button id="enterButton" class="magical-button">
-        Enter the magic
-        <span>→</span>
-    </button>
-
-</section>
 
 
 <!-- =====================================================
-     MAIN WEBSITE
+     FLOATING PETALS
 ===================================================== -->
 
-<main id="mainContent" class="main-content hidden">
+<div id="petals"
+     class="petals">
+</div>
 
 
-    <!-- HERO -->
-    <section class="hero section">
 
-        <div class="hero-glow"></div>
+<!-- =====================================================
+     MUSIC
+===================================================== -->
 
-        <div class="butterfly butterfly-1">🦋</div>
-        <div class="butterfly butterfly-2">🦋</div>
-        <div class="butterfly butterfly-3">🦋</div>
+<audio id="weddingMusic"
+       loop
+       preload="auto">
 
-        <div class="hero-content">
+    <source
+        src="assets/Westlife_-_Beautifull_in_White_(mp3.pm).mp3"
+        type="audio/mpeg">
 
-            <div class="mini-label">
-                ✦ A MAGICAL DAY ✦
-            </div>
+</audio>
 
-            <h1>
-                Happy Birthday
-                <span>♡</span>
-            </h1>
 
-            <h2 id="heroName">
-                Someone Special
-            </h2>
+<button id="musicButton"
+        class="music-button"
+        aria-label="Music">
 
-            <p>
-                May your day be filled with tiny moments
-                that feel like magic.
-            </p>
+    <span>
+        ♫
+    </span>
 
-            <button id="scrollButton" class="magical-button">
-                Discover your surprise
-                <span>↓</span>
-            </button>
+</button>
 
-        </div>
 
-        <div class="scroll-indicator">
+
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<section id="opening"
+         class="opening">
+
+    <div class="opening-decoration decoration-left">
+    </div>
+
+    <div class="opening-decoration decoration-right">
+    </div>
+
+
+    <div class="opening-content">
+
+        <p class="opening-small">
+            THE WEDDING OF
+        </p>
+
+
+        <h1>
+            A
+            <span>&</span>
+            R
+        </h1>
+
+
+        <div class="ornament">
+
             <span></span>
-        </div>
 
-    </section>
+            ♡
 
-
-    <!-- =================================================
-         BIRTHDAY MESSAGE
-    ================================================== -->
-
-    <section class="message-section section">
-
-        <div class="section-decoration">✦</div>
-
-        <div class="glass-card message-card">
-
-            <span class="card-icon">💌</span>
-
-            <p class="small-heading">
-                A little message
-            </p>
-
-            <h2>
-                For you, on your special day
-            </h2>
-
-            <div class="typing-box">
-                <p id="typingText"></p>
-                <span class="typing-cursor">|</span>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         CAKE
-    ================================================== -->
-
-    <section class="cake-section section">
-
-        <div class="section-title">
-
-            <span>🎂</span>
-
-            <h2>
-                Make a wish
-            </h2>
-
-            <p>
-                Click the candles and make your birthday wish.
-            </p>
+            <span></span>
 
         </div>
 
 
-        <div class="cake-area">
-
-            <div class="cake-glow"></div>
-
-            <div class="candles">
-
-                <div class="candle">
-                    <div class="flame"></div>
-                    <div class="candle-body"></div>
-                </div>
-
-                <div class="candle">
-                    <div class="flame"></div>
-                    <div class="candle-body"></div>
-                </div>
-
-                <div class="candle">
-                    <div class="flame"></div>
-                    <div class="candle-body"></div>
-                </div>
-
-            </div>
-
-
-            <div class="cake">
-
-                <div class="cake-top"></div>
-
-                <div class="cake-layer cake-layer-1"></div>
-
-                <div class="cake-layer cake-layer-2"></div>
-
-                <div class="cake-layer cake-layer-3"></div>
-
-                <div class="cake-decoration decoration-1">♡</div>
-                <div class="cake-decoration decoration-2">♡</div>
-                <div class="cake-decoration decoration-3">♡</div>
-
-            </div>
-
-            <div class="cake-plate"></div>
-
-        </div>
-
-
-        <p id="wishMessage" class="wish-message">
-            ✨ Make a wish first... ✨
+        <p class="opening-date">
+            28 · 12 · 2026
         </p>
 
-    </section>
+
+        <p class="guest-label">
+            Dear,
+        </p>
 
 
-    <!-- =================================================
-         GIFT
-    ================================================== -->
-
-    <section class="gift-section section">
-
-        <div class="section-title">
-
-            <span>🎁</span>
-
-            <h2>
-                There's something for you
-            </h2>
-
-            <p>
-                A tiny gift wrapped with lots of love.
-            </p>
-
-        </div>
+        <h2 id="guestNameOpening">
+            Tamu Undangan
+        </h2>
 
 
-        <div id="gift" class="gift">
+        <button id="openInvitation"
+                class="open-button">
 
-            <div class="gift-glow"></div>
+            <span>
+                Open Invitation
+            </span>
 
-            <div class="gift-box">
+            <span>
+                ♡
+            </span>
 
-                <div class="gift-lid"></div>
-
-                <div class="gift-body"></div>
-
-                <div class="gift-ribbon vertical"></div>
-
-                <div class="gift-ribbon horizontal"></div>
-
-                <div class="gift-bow">
-                    <span></span>
-                    <span></span>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <button id="giftButton" class="magical-button">
-            Open your gift 🎀
         </button>
 
+    </div>
 
-        <div id="giftMessage" class="gift-message">
+</section>
 
-            <div class="gift-message-inner">
 
-                <span>✨</span>
 
-                <h3>
-                    Your gift is...
-                </h3>
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
 
-                <p>
-                    A reminder that you are someone
-                    worth celebrating, today and every day.
-                </p>
+<main id="mainContent"
+      class="hidden">
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-glow glow-one"></div>
+
+    <div class="hero-glow glow-two"></div>
+
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            THE WEDDING CELEBRATION
+        </p>
+
+
+        <h1>
+
+            Aulia
+
+            <span>&</span>
+
+            Rizky
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Dengan penuh rasa syukur dan bahagia,
+            kami mengundang Anda untuk menjadi
+            bagian dari hari istimewa kami.
+
+        </p>
+
+
+        <div class="hero-date">
+
+            <span>
+                28
+            </span>
+
+            <div>
+
+                <small>
+                    DECEMBER
+                </small>
 
                 <strong>
-                    Keep shining, okay? 💙
+                    2026
                 </strong>
 
             </div>
 
         </div>
 
-    </section>
-<!-- =================================================
-     POPUP MESSAGE
-================================================== -->
 
-<div id="messagePopup" class="message-popup">
+        <div class="scroll-indicator">
 
-    <div class="popup-overlay"></div>
+            <span></span>
 
-    <div class="popup-card">
+            Scroll to explore
 
-        <button id="closePopup" class="popup-close">
-            ×
-        </button>
-
-        <div class="popup-sparkles">
-            ✦ ✧ ✦
         </div>
-
-        <div class="popup-icon">
-            💌
-        </div>
-
-        <p class="popup-label">
-            A little message for you
-        </p>
-
-        <h3 id="popupTitle">
-            Just a reminder...
-        </h3>
-
-        <p id="popupText">
-            You deserve beautiful things,
-            gentle moments, and people who
-            make your heart feel at home. 💙
-        </p>
-
-        <div class="popup-heart">
-            ♡
-        </div>
-
-        <button id="nextMessage" class="popup-button">
-            Another little message ✨
-        </button>
 
     </div>
 
+</section>
+
+
+
+<!-- =====================================================
+     PERSONAL GUEST
+===================================================== -->
+
+<section class="guest-section">
+
+    <div class="container narrow">
+
+        <div class="section-symbol">
+            ♡
+        </div>
+
+
+        <p class="eyebrow">
+            A SPECIAL INVITATION
+        </p>
+
+
+        <h2>
+
+            Dear,
+
+            <span id="guestName">
+                Tamu Undangan
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Tanpa mengurangi rasa hormat,
+            kami dengan bahagia mengundang
+            Anda untuk hadir dan memberikan
+            doa restu di hari pernikahan kami.
+
+        </p>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="guest-note">
+
+            Kehadiran Anda akan menjadi
+            salah satu hadiah terindah bagi kami.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COUPLE
+===================================================== -->
+
+<section class="couple-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            THE COUPLE
+        </p>
+
+
+        <h2 class="section-title">
+
+            Two Hearts,
+            <br>
+
+            One Beautiful Journey
+
+        </h2>
+
+
+        <div class="couple-grid">
+
+
+            <!-- BRIDE -->
+
+            <div class="person-card">
+
+                <div class="person-image">
+
+                    <div class="image-placeholder">
+                        A
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Aulia
+                </h3>
+
+
+                <p class="role">
+                    The Bride
+                </p>
+
+
+                <p>
+
+                    Putri pertama dari
+                    <br>
+
+                    Bapak Nama Ayah
+                    <br>
+
+                    & Ibu Nama Ibu
+
+                </p>
+
+            </div>
+
+
+
+            <div class="ampersand">
+                &
+            </div>
+
+
+
+            <!-- GROOM -->
+
+            <div class="person-card">
+
+                <div class="person-image groom">
+
+                    <div class="image-placeholder">
+                        R
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Rizky
+                </h3>
+
+
+                <p class="role">
+                    The Groom
+                </p>
+
+
+                <p>
+
+                    Putra pertama dari
+                    <br>
+
+                    Bapak Nama Ayah
+                    <br>
+
+                    & Ibu Nama Ibu
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PHOTO GALLERY
+===================================================== -->
+
+<section class="gallery-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            OUR MEMORIES
+        </p>
+
+
+        <h2 class="section-title">
+
+            Moments We Cherish
+
+        </h2>
+
+
+        <p class="gallery-description">
+
+            Beberapa momen indah yang menjadi
+            bagian dari perjalanan cinta kami.
+
+        </p>
+
+
+
+        <div class="gallery-grid">
+
+
+            <div class="gallery-item gallery-large">
+
+                <img
+                    src="assets/foto1.jpg"
+                    alt="Our Memory 1"
+                    loading="lazy">
+
+                <div class="gallery-overlay">
+
+                    <span>
+                        ♡
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/foto2.jpg"
+                    alt="Our Memory 2"
+                    loading="lazy">
+
+                <div class="gallery-overlay">
+
+                    <span>
+                        ♡
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/foto3.jpg"
+                    alt="Our Memory 3"
+                    loading="lazy">
+
+                <div class="gallery-overlay">
+
+                    <span>
+                        ♡
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item gallery-wide">
+
+                <img
+                    src="assets/foto4.jpg"
+                    alt="Our Memory 4"
+                    loading="lazy">
+
+                <div class="gallery-overlay">
+
+                    <span>
+                        ♡
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/foto5.jpg"
+                    alt="Our Memory 5"
+                    loading="lazy">
+
+                <div class="gallery-overlay">
+
+                    <span>
+                        ♡
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/foto6.jpg"
+                    alt="Our Memory 6"
+                    loading="lazy">
+
+                <div class="gallery-overlay">
+
+                    <span>
+                        ♡
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div id="lightbox"
+     class="lightbox">
+
+
+    <button id="lightboxClose"
+            class="lightbox-close">
+
+        ×
+
+    </button>
+
+
+
+    <button id="lightboxPrev"
+            class="lightbox-arrow lightbox-prev">
+
+        ‹
+
+    </button>
+
+
+
+    <div class="lightbox-content">
+
+        <img id="lightboxImage"
+             src=""
+             alt="Wedding Memory">
+
+        <p id="lightboxCaption">
+
+            Our Beautiful Moment ♡
+
+        </p>
+
+    </div>
+
+
+
+    <button id="lightboxNext"
+            class="lightbox-arrow lightbox-next">
+
+        ›
+
+    </button>
+
 </div>
 
-    <!-- =================================================
-         WISHES
-    ================================================== -->
 
-    <section class="wishes-section section">
 
-        <div class="glass-card wishes-card">
+<!-- =====================================================
+     QUOTE
+===================================================== -->
 
-            <div class="wish-stars">
-                ✦　✧　✦
-            </div>
+<section class="quote-section">
 
-            <h2>
-                Birthday wishes
-            </h2>
+    <div class="quote-content">
 
-            <div class="wish-list">
+        <div class="quote-mark">
+            “
+        </div>
 
-                <div class="wish-item">
-                    <span>🌙</span>
-                    <p>
-                        May your nights be peaceful.
-                    </p>
-                </div>
 
-                <div class="wish-item">
-                    <span>🌷</span>
-                    <p>
-                        May your days bloom beautifully.
-                    </p>
-                </div>
+        <blockquote>
 
-                <div class="wish-item">
-                    <span>✨</span>
-                    <p>
-                        May your dreams find their way to you.
-                    </p>
-                </div>
+            And among His signs is that He
+            created for you mates from among
+            yourselves, that you may dwell
+            in tranquility with them.
 
-                <div class="wish-item">
-                    <span>🦋</span>
-                    <p>
-                        And may you always remember how special you are.
-                    </p>
-                </div>
+        </blockquote>
+
+
+        <p>
+            — QS. Ar-Rum : 21
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EVENT
+===================================================== -->
+
+<section class="event-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            SAVE THE DATE
+        </p>
+
+
+        <h2 class="section-title">
+            Our Special Day
+        </h2>
+
+
+
+        <div class="event-date-large">
+
+            <span class="day">
+                28
+            </span>
+
+
+            <div>
+
+                <span>
+                    DECEMBER
+                </span>
+
+                <strong>
+                    2026
+                </strong>
 
             </div>
 
         </div>
 
-    </section>
 
 
-    <!-- =================================================
-         FINAL MESSAGE
-    ================================================== -->
+        <div class="events-grid">
 
-    <section class="final-section section">
 
-        <div class="final-stars">
-            ✦ ✧ ✦ ✧ ✦
+            <!-- AKAD -->
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    ♡
+                </div>
+
+
+                <h3>
+                    Akad Nikah
+                </h3>
+
+
+                <p class="event-time">
+                    08.00 — 10.00 WIB
+                </p>
+
+
+                <p>
+                    Senin, 28 Desember 2026
+                </p>
+
+
+                <p>
+
+                    Gedung Pernikahan
+                    <br>
+
+                    Jl. Contoh No. 123
+
+                </p>
+
+
+                <a href="https://maps.google.com/"
+                   target="_blank"
+                   class="location-button">
+
+                    View Location
+
+                </a>
+
+            </div>
+
+
+
+            <!-- RECEPTION -->
+
+            <div class="event-card featured">
+
+                <div class="event-icon">
+                    ✦
+                </div>
+
+
+                <h3>
+                    Wedding Reception
+                </h3>
+
+
+                <p class="event-time">
+                    11.00 — 14.00 WIB
+                </p>
+
+
+                <p>
+                    Senin, 28 Desember 2026
+                </p>
+
+
+                <p>
+
+                    Gedung Pernikahan
+                    <br>
+
+                    Jl. Contoh No. 123
+
+                </p>
+
+
+                <a href="https://maps.google.com/"
+                   target="_blank"
+                   class="location-button">
+
+                    View Location
+
+                </a>
+
+            </div>
+
+
         </div>
 
-        <div class="final-content">
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="countdown-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            COUNTING DOWN
+        </p>
+
+
+        <h2 class="section-title">
+
+            Until We Say
+            <br>
+
+            <i>"I Do"</i>
+
+        </h2>
+
+
+
+        <div class="countdown">
+
+
+            <div class="count-box">
+
+                <strong id="days">
+                    00
+                </strong>
+
+                <span>
+                    Days
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="hours">
+                    00
+                </strong>
+
+                <span>
+                    Hours
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="minutes">
+                    00
+                </strong>
+
+                <span>
+                    Minutes
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="seconds">
+                    00
+                </strong>
+
+                <span>
+                    Seconds
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RSVP
+===================================================== -->
+
+<section id="rsvp"
+         class="rsvp-section">
+
+    <div class="container narrow">
+
+
+        <p class="eyebrow">
+            RSVP
+        </p>
+
+
+        <h2 class="section-title">
+
+            Will You Join Us?
+
+        </h2>
+
+
+        <p class="rsvp-description">
+
+            Mohon konfirmasi kehadiran Anda.
+            Data yang dikirim akan tersimpan
+            pada daftar RSVP kami.
+
+        </p>
+
+
+
+        <form id="rsvpForm">
+
+
+            <!-- NAME -->
+
+            <div class="input-group">
+
+                <label for="name">
+                    Nama
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Nama lengkap"
+                    required>
+
+            </div>
+
+
+
+            <!-- ATTENDANCE -->
+
+            <div class="input-group">
+
+                <label for="attendance">
+                    Kehadiran
+                </label>
+
+                <select
+                    id="attendance"
+                    required>
+
+                    <option value="">
+                        Pilih konfirmasi
+                    </option>
+
+                    <option value="Hadir">
+                        Saya akan hadir
+                    </option>
+
+                    <option value="Tidak Hadir">
+                        Maaf, saya tidak dapat hadir
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- GUESTS -->
+
+            <div class="input-group">
+
+                <label for="guests">
+                    Jumlah Tamu
+                </label>
+
+                <select
+                    id="guests"
+                    required>
+
+                    <option value="">
+                        Pilih jumlah
+                    </option>
+
+                    <option value="1">
+                        1 Orang
+                    </option>
+
+                    <option value="2">
+                        2 Orang
+                    </option>
+
+                    <option value="3">
+                        3 Orang
+                    </option>
+
+                    <option value="4">
+                        4 Orang
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div class="input-group">
+
+                <label for="message">
+                    Ucapan & Doa
+                </label>
+
+                <textarea
+                    id="message"
+                    rows="4"
+                    placeholder="Tuliskan ucapan untuk kedua mempelai..."></textarea>
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="submit-button">
+
+                <span id="submitText">
+                    Kirim RSVP
+                </span>
+
+                <span id="submitLoading"
+                      class="hidden">
+
+                    Mengirim...
+
+                </span>
+
+            </button>
+
+
+            <p id="rsvpStatus"
+               class="rsvp-status">
+            </p>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WEDDING GIFT
+===================================================== -->
+
+<section class="gift-section">
+
+    <div class="container narrow">
+
+        <p class="eyebrow">
+            WEDDING GIFT
+        </p>
+
+
+        <h2 class="section-title">
+
+            Your Love Is Our Gift
+
+        </h2>
+
+
+        <p>
+
+            Doa dan kehadiran Anda adalah hadiah
+            yang paling berarti bagi kami.
+
+            Namun apabila ingin memberikan
+            tanda kasih, dapat melalui:
+
+        </p>
+
+
+
+        <div class="gift-card">
+
+            <div class="bank-logo">
+                BANK
+            </div>
+
+
+            <h3>
+                1234567890
+            </h3>
+
 
             <p>
-                and before you go...
+                AULIA RIZKY
             </p>
 
-            <h2>
-                Happy Birthday,
-                <span id="finalName">Someone Special</span> 💙
-            </h2>
 
-            <div class="heart-big">
-                ♥
-            </div>
+            <button
+                class="copy-button"
+                onclick="copyAccount()">
 
-            <p class="final-note">
-                May this new chapter be soft,
-                beautiful and full of little miracles.
-            </p>
+                Copy Account Number
 
-            <button id="magicButton" class="magical-button">
-                Make it magical ✨
             </button>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
 
-    <footer>
+<!-- =====================================================
+     CLOSING
+===================================================== -->
 
-        <p>
-            made with ♡ and a little bit of magic
+<section class="closing-section">
+
+    <div class="closing-content">
+
+        <div class="closing-flower">
+            ✿
+        </div>
+
+
+        <p class="eyebrow">
+            WITH LOVE
         </p>
 
-        <span>
-            ✦ 2026 ✦
-        </span>
 
-    </footer>
+        <h2>
+            Thank You
+        </h2>
+
+
+        <p>
+
+            Merupakan suatu kehormatan dan
+            kebahagiaan bagi kami apabila
+            Anda berkenan hadir dan memberikan
+            doa restu.
+
+        </p>
+
+
+        <div class="closing-names">
+
+            Aulia & Rizky
+
+        </div>
+
+
+        <div class="closing-heart">
+            ♡
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        Made with ♡ for our special day
+    </p>
+
+</footer>
 
 
 </main>
 
 
-<!-- =====================================================
-     MUSIC BUTTON
-===================================================== -->
 
-<button id="musicButton" class="music-button" aria-label="Music">
-    ♫
-</button>
-
-
-<!-- =====================================================
-     SCRIPT
-===================================================== -->
+<!-- JAVASCRIPT -->
 
 <script src="script.js"></script>
+
 
 </body>
 </html>
